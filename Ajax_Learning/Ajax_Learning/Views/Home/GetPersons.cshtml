@@ -1,0 +1,13 @@
+﻿@using Ajax_Learning.Models
+@model IEnumerable<Person>
+@{
+    Layout = null;
+}
+
+@foreach (Person pes in Model)
+{
+    <tr>
+        <td>@pes.Name</td>
+        <td>@pes.Type.ToString()</td>
+    </tr>
+}

@@ -1,0 +1,92 @@
+﻿@using Ajax_Learning.Models
+@model IEnumerable<Person>
+@{
+    Layout = null;
+
+    AjaxOptions ajax = new AjaxOptions
+    {
+        //через это свойство мы создаем ID такого Html-элемента, который будет обновлен
+        //в асинхронном режиме
+        //мы хотим чтобы у нас обновлялся список людей, то есть 
+        //содержание частичного представления GetPersons
+        UpdateTargetId = "personList",
+        
+        //в этом свойстве указываем то действие в контроллере, к которому будет сделан асинхронный запрос
+        //у нас это дочернее действие GetPersons
+        Url = Url.Action("GetPersons"),
+        
+        //бывает такие случаи, когда сервер загружен или у пользователя медленный интернет
+        //в результате асинхронный запрос может выполняться долго и не понятно обновились данные или нет
+        //для того, чтобы показать пользователю, что его запро все еще выполняется, пользователю можно показать картинку или текст
+        //символизирующий процесс загрузки
+        //после того, как запрос выполнен - картинка исчезнет
+        LoadingElementId = "loadingElement",
+        
+        //через это свойство можно указать сообщение которое будет показано пользователю, перед тем как асинхронный запрос будет выполнен
+        //пользователь может согласиться или отказаться.
+        Confirm = "Вы действительно хотите это сделать?",
+        
+        //Позволяют определить javaScript функции которые будут вызваны в тот или иной момент выполнения запроса:
+        //OnBegin - указываем функцию которая будет вызывать ДА НАЧАЛА выполнения запроса
+       // OnComplete - после успешного выполнения запроса, но перед обновлением страницы
+       // OnFailure - если выполнение запроса завершиться с ошибкой
+        //OnSuccess - после успешного выполнения запроса после обновления страницы
+        
+        OnBegin = "CallMeOnBegin",
+        OnSuccess = "CallMeOnSuccess"
+    };
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <!--Подключение библиотк для работы с Ajax-->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-2.1.3.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+    <script type="text/javascript">
+        function CallMeOnBegin() {
+            alert('Сейчас будет выполнен асинхронный запрос')
+        }
+
+        function CallMeOnSuccess() {
+            alert('Выполнение запроса успешно закончено')
+        }
+    </script>
+
+</head>
+<body>
+    <div>
+        @using (Ajax.BeginForm(ajax))
+        {
+            <table>
+                <thead> <!--Шапка-->
+                    <tr>
+                    <td>Имя</td>
+                    <td>Тип</td>
+                    </tr>
+                </thead>
+                <tbody id="personList">
+                    <!--Используем Ajax-->
+                    <!--Обращаемся к дочернему действию в контроллере Home-->
+                    <!--результатом которого будет вызов частичного представления GetPersons  -->
+                    @Html.Action("GetPersons", new { personType = ViewBag.PersonType })
+                </tbody>
+            </table>
+            
+            <!-- Создадим выпадающий список, где перечислим типы людей-->
+            <!-- Для этого воспользуемся соответствующим HTML хэлпером-->
+            <!--Название выпадающего списка должно совпадать с именем аргумента, который приходит в метод Index Controllera-->
+            <p>@Html.DropDownList("personType", new SelectList(new [] {"All", "Student", "Worker"}))</p>
+            
+            <!--кнопка для отправки данных на сервер (submit)-->
+            <input type="submit" value="Вывести список людей + @ViewBag.PersonType" />
+        }
+        
+    </div>
+    <div id="loadingElement" style="display:none; color: red" ><p>LOADING...</p></div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿@using Domain.Entities
+@model IEnumerable<Сотрудники>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @foreach (Сотрудники staff in Model)
+        {
+            <div> Имя: @staff.Firstname Фамилия:@staff.Surname </div>
+        }
+    </div>
+</body>
+</html>
