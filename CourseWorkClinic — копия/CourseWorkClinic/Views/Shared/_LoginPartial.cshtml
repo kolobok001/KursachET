@@ -1,0 +1,39 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <text>
+        
+
+    @if (System.Web.HttpContext.Current.User.IsInRole("админ"))
+    {
+        <h2 style="color: blue">
+            Здравствуйте,
+             @*@Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Управление" })*@
+            @User.Identity.Name!
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                @Html.AntiForgeryToken()
+                <a href="javascript:document.getElementById('logoutForm').submit()" style="color: white">Выйти</a>
+            }
+        </h2>
+
+    <h2 style="color: black">Админ панель</h2>
+    }
+    else
+    {
+        <h2>
+            Здравствуйте,@*@Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Управление" })*@
+            @User.Identity.Name!
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                @Html.AntiForgeryToken()
+                <a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a>
+            }
+        </h2>
+    }
+</text>
+}
+else
+{
+    <h3>@Html.ActionLink("Выполнить вход", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</h3>
+
+}

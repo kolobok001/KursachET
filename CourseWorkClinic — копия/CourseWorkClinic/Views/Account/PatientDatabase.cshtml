@@ -1,0 +1,149 @@
+﻿@using CourseWorkClinic.App_Data
+@using CourseWorkClinic.Models
+@model IEnumerable<CourseWorkClinic.App_Data.Пациенты>
+
+@{
+    ViewBag.Title = "PatientDatabase";
+    
+}
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-2.1.3.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+
+<script>
+    $(function () {
+        $('.edit-mode').hide();
+
+        $('.edit-patient').on('click', function () {
+            var tr = $(this).parents('tr:first');
+            tr.find('.edit-mode, .display-mode').toggle();
+        });
+
+        $('.save-patient').on('click', function () {
+            var tr = $(this).parents('tr:first');
+            var patientId = $(this).prop('id');
+            var policeNumb = tr.find('#Police').val();
+            var surname = tr.find('#Surname').val();
+            var firstname = tr.find('#Firstname').val();
+            var patronomic = tr.find('#Patronomic').val();
+            var birthDate = tr.find('#BirthDate').val();
+            var deathDate = tr.find('#DeathDate').val();
+            var adressCode = tr.find('#AdressList').val();
+            $.post('/Edit/EditPatient', {
+                PatientId: patientId, Police: policeNumb, Surname: surname, Firstname: firstname,
+                Patronomic: patronomic, BirthDate: birthDate, DeathDate: deathDate, AdressList: adressCode
+            })
+            .done(function (result) {
+                window.location = '/Account/PatientDatabase';
+                alert('Данные сохранены');
+            })
+            .fail(function () {
+                console.log('server error');
+            });
+            tr.find('.edit-mode, .display-mode').toggle();
+        }
+        );
+
+        $('.delete-patient').on('click', function () {
+            if (confirm("Вы уверены, что хотите удалить эту запись?")) {
+                var tr = $(this).parents('tr:first');
+                var patientId = $(this).prop('id');
+                $.post('/Edit/DeletePatient', { PatientId: patientId })
+                .done(function(result)
+                {
+                    window.location = '/Account/PatientDatabase';
+                    alert('Данные удалены');
+                })
+                .fail(function() {
+                    console.log('server error');
+                });
+            }
+        });
+    })
+</script>
+
+@if (ViewBag.Flag)
+{
+    <script language="JavaScript">
+    alert("Данные добавлены");
+    </script>
+}
+
+    <h2>База пациентов</h2>
+
+    <p>
+        @Html.ActionLink("Зарегистрировать пациента", "RegistrationOnly", "Account")
+    </p>
+    <table class="simple-little-table" cellspacing='0'>
+        <tr>
+            <th>№ полиса</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Фамилия)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Имя)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Отчество)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Дата_рождения)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Дата_смерти)
+            </th>
+            <th>Адрес</th>
+            <th>Действие</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <span id="C__полиса" class="display-mode">@item.C__полиса</span>
+                    <div class="myTextBox">@Html.TextBox("Police", (string)item.C__полиса, new { @class = "edit-mode", style = "width: 90px" }) </div>
+                </td>
+                <td>
+                    <span id="Фамилия" class="display-mode">@item.Фамилия</span>
+                    <div class="myTextBox">@Html.TextBox("Surname", (string)item.Фамилия, new { @class = "edit-mode", style = "width: 90px" }) </div>
+                </td>
+                <td>
+                    <span id="Имя" class="display-mode">@item.Имя</span>
+                    <div class="myTextBox">@Html.TextBox("Firstname", (string)item.Имя, new { @class = "edit-mode", style = "width: 90px" }) </div>
+                </td>
+                <td>
+                    <span id="Отчество" class="display-mode">@item.Отчество</span>
+                    <div class="myTextBox">@Html.TextBox("Patronomic", (string)item.Отчество, new { @class = "edit-mode", style = "width: 90px" }) </div>
+                </td>
+                <td>
+                    @{
+                        var dateVal = item.Дата_рождения.ToString("d", System.Globalization.CultureInfo.CreateSpecificCulture("de-DE"));
+                    }
+                    <span id="Дата_рождения" class="display-mode">@dateVal</span>
+                    <div class="myTextBox">@Html.TextBox("BirthDate", dateVal, new { @class = "edit-mode", style = "width: 140px" }) </div>
+                </td>
+                <td>
+                    @{
+                        var dateDeath = item.Дата_смерти.ToString();
+
+                        if (dateDeath != "")
+                        {
+                            dateDeath = dateDeath.Remove(11);
+                        }
+                    }
+                    <span id="Дата_смерти" class="display-mode">@dateDeath</span>
+                    <div class="myTextBox">@Html.TextBox("DeathDate", (item.Дата_смерти != null) ? (DateTime)item.Дата_смерти : DateTime.Now, new { @class = "edit-mode", style = "width: 140px" }) </div>
+                </td>
+                <td>
+                    <span id="Адрес" class="display-mode">@Helper.GetAdress(item.Адреса)</span>
+                    @Html.DropDownList("AdressList", new SelectList(Model.Select(x => new { Id = x.Код_адреса, Text = Helper.GetAdress(x.Адреса) }).ToList(), "Id", "Text", item.Код_адреса), Helper.GetAdress(item.Адреса), new { @class = "edit-mode" })
+                </td>
+                <td>
+                    <button class="edit-patient display-mode" id="@item.ID_пациента">Изменить</button>
+                    <button class="delete-patient mode" id="@item.ID_пациента">Удалить</button>
+                    <button class="save-patient edit-mode" id="@item.ID_пациента">Сохранить</button>
+                </td>
+            </tr>
+        }
+    </table>
+       

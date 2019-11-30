@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CourseWorkClinic.Models.ReceptionAtDoctor>
+
+@{
+    ViewBag.Title = "Приемы у врача";
+}
+
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-2.1.3.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+<p>
+    @Html.ActionLink("Записать пациента", "AddReception", "Home")
+</p>
+
+@using (Ajax.BeginForm("ReceptSearch", new AjaxOptions { UpdateTargetId = "results" }))
+{
+    <div class="row search-row">
+        <div class="search-col">
+            <input type="date" name="dateSearch" id="autocomplete-ajax" class="form-control has-icon" placeholder="Дата приема" value="" autocomplete="off">
+            <input type="text" name="surnameSearch" class="form-control has-icon" placeholder="Фамилия врача" value="">
+            <button type="submit" class="btn btn-primary btn-search btn-block"><i class="icon-search"></i><strong>Find</strong></button>
+        </div>
+    </div>
+}
+
+<div>
+    <div id="results">
+        <table class="simple-little-table" cellspacing='0'>
+            <tr>
+                <th>Дата приема</th>
+                <th>Врача</th>
+                <th>Пациент</th>
+                <th>Диагноз</th>
+                <th>Рецепт</th>
+                <th>Примечание</th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Дата_приема)</td>
+
+                <td>@Html.DisplayFor(modelItem => item.ф_врача) @Html.DisplayFor(modelItem => item.и_врача) @Html.DisplayFor(modelItem => item.о_врача)</td>
+                <td>@Html.DisplayFor(modelItem => item.ф_пациента) @Html.DisplayFor(modelItem => item.и_пациента) @Html.DisplayFor(modelItem => item.о_пациента)</td>
+                <td>@Html.DisplayFor(modelItem => item.Диагноз)</td>
+                <td>@Html.DisplayFor(modelItem => item.Рецепт)</td>
+                <td>@Html.DisplayFor(modelItem => item.Примечание)</td>
+                <td><a href="~/Edit/EditRecept?id=@item.ID_приема">Редактировать</a></td>
+
+
+            </tr>
+            }
+
+
+
+        </table>
+    </div>
+</div>
+
+
+
+
+

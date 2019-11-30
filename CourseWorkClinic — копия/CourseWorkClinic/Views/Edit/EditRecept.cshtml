@@ -1,0 +1,93 @@
+﻿@using CourseWorkClinic.App_Data
+@model Прием
+
+@{
+    ViewBag.Title = "Редактирование приема";
+    ClinicEntities entities = new ClinicEntities();
+
+    IEnumerable<Пациенты> model = (IEnumerable<Пациенты>)entities.Пациенты.ToList();
+    IEnumerable<CourseWorkClinic.Models.DoctorList> model2 = (from Врачи in entities.Врачи
+                                                              join Сотрудники in entities.Сотрудники on Врачи.ID_сотрудника equals Сотрудники.ID_сотрудника
+                                                              join Специальности in entities.Специальности on Врачи.Код_специальности equals Специальности.Код_специальности
+
+                                                              let p = new CourseWorkClinic.Models.DoctorList
+                                                              {
+
+                                                                  Id_врача = Врачи.ID_врача,
+
+                                                                  Фамилия = Сотрудники.Фамилия,
+                                                                  Имя = Сотрудники.Имя,
+                                                                  Отчество = Сотрудники.Отчество,
+                                                                  Специальность = Специальности.Наименование,
+                                                                  Код_специальности = Специальности.Код_специальности
+
+
+
+                                                              }
+                                                              select p).ToList();
+
+
+
+}
+
+<h2>Регистратура</h2>
+
+<section id="regForm">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        
+            <fieldset>
+                <legend>Форма регистрации пациента</legend>
+                <ol>
+                    <li style="display:none">
+
+                        @Html.EditorFor(m => m.ID_приема)
+                    </li>
+                    <li>
+                        @Html.Label("Клиент")
+                        @Html.DropDownListFor(m => m.ID_пациента, new SelectList(model.Select(x => new { Id = x.ID_пациента, Text = CourseWorkClinic.Models.Helper.GetFioPacient(x) }).ToList(), "Id", "Text"), "")
+                        @Html.ValidationMessageFor(m => m.ID_пациента, "Выберите Пациента")
+                    </li>
+                    <li>
+                        @Html.Label("Врач")
+                        @Html.DropDownListFor(m => m.ID_врача, new SelectList(model2.Select(x => new { Id = x.Id_врача, Text = CourseWorkClinic.Models.Helper.GetFioDoctor(x) }).ToList(), "Id", "Text"), "")
+                        @Html.ValidationMessageFor(m => m.ID_пациента, "Выберите Врача")
+                    </li>
+                    <li>
+                        @Html.Label("Дата")
+                        @Html.EditorFor(m => m.Дата)
+                        @Html.ValidationMessageFor(m => m.Дата, "Введите дату")
+                    </li>
+
+
+
+                    <li>
+                        @Html.EditorFor(m => m.Диагноз)
+                    </li>
+                    <li>
+                        @Html.EditorFor(m => m.Рецепт)
+                    </li>
+                    <li>
+                        @Html.EditorFor(m => m.Примечание)
+                    </li>
+
+
+                </ol>
+                <input type="submit" value="Обновить" />
+            </fieldset>
+
+            
+        
+    }
+</section>
+
+
+
+
+
+
+
+
+

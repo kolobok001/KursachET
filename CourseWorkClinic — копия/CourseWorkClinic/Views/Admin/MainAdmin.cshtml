@@ -1,0 +1,171 @@
+﻿@using CourseWorkClinic.App_Data
+@model IEnumerable<CourseWorkClinic.App_Data.Сотрудники>
+@{
+
+    WebGrid grid = new WebGrid(Model, canPage: true, rowsPerPage: 10);
+    grid.Pager(WebGridPagerModes.NextPrevious);
+
+    ClinicEntities entities = new ClinicEntities();
+    IEnumerable<Специальности> specialityList = entities.Специальности;  
+    List<Врачи> model = entities.Врачи.Include("Специальности").ToList();
+}
+
+<h2>Управление сотрудниками</h2>
+<h2></h2>
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-2.1.3.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+
+<script>
+    $(function () {
+        $('.edit-mode').hide();
+        $(".hidden-div").hide();
+
+        $('.addnewCount').on('click', function () {
+            $('.hidden-div, .addnewCount').toggle();
+        });
+
+        $('.savenewCount').on('click', function () {
+            var surname = $("#Newsurname").val();
+            var firstname = $("#Newfirstname").val();
+            var patronymic = $("#Newpatronymic").val();
+
+            $.post('/Edit/AddStaff', {
+                Surname: surname, Firstname: firstname,
+                Patronymic: patronymic
+            })
+            .done(function (result) {
+                window.location = '/Admin/MainAdmin';
+                alert('Данные сохранены');
+            })
+            .fail(function () {
+                console.log('server error');
+                alert('Ошибка сохранения');
+            });
+
+            $('.hidden-div, .addnewCount').toggle();
+        }
+        );
+
+        $('.edit-staff').on('click', function () {
+            var tr = $(this).parents('tr:first');
+            tr.find('.edit-mode, .display-mode').toggle();
+        });
+
+        $('.save-staff').on('click', function () {
+            var tr = $(this).parents('tr:first');
+            var staffID = $(this).prop('id');
+            var surname = tr.find("#Surname").val();
+            var firstname = tr.find("#Firstname").val();
+            var patronymic = tr.find("#Patronymic").val();
+
+            $.post('/Edit/EditStaff', {
+                StaffId: staffID, Surname: surname, Firstname: firstname,
+                Patronymic: patronymic
+            })
+            .done(function (result) {
+                window.location = '/Admin/MainAdmin', {};
+                alert('Данные сохранены');
+            })
+            .fail(function () {
+                console.log('server error');
+                alert('Ошибка сохранения');
+            });
+            tr.find('.edit-mode, .display-mode').toggle();
+        }
+        );
+
+        $('.delete-staff').on('click', function () {
+            if (confirm("Вы уверены, что хотите удалить эту запись?")) {
+                var tr = $(this).parents('tr:first');
+                var staffID = $(this).prop('id');
+                $.post('/Edit/DeleteStaff', { StaffId: staffID })
+                .done(function (result) {
+                    window.location = '/Admin/MainAdmin';
+                    alert('Данные удалены');
+                })
+                .fail(function () {
+                    console.log('server error');
+                    alert('Ошибка удаления');
+                });
+            }
+        });
+    })
+</script>
+
+
+<button class="btn-edit addnewCount"><i class="icon-search"></i><strong>Добавить сотрудника</strong></button>
+
+<div class="hidden-div">
+    <button class="btn-edit savenewCount"><i class="icon-search"></i><strong>Сохранить</strong></button>
+</div>
+
+<div class="hidden-div">
+    <input type="text" name="Newsurname" id="Newsurname" class="form-control" placeholder="Фамилия" value="" autocomplete="off">
+</div>
+
+<div class="hidden-div">
+    <input type="text" name="Newfirstname" id="Newfirstname" class="form-control" placeholder="Имя" value="">
+</div>
+
+<div class="hidden-div">
+    <input type="text" name="Newpatronymic" id="Newpatronymic" class="form-control" placeholder="Отчество" value="">
+</div>
+
+@*<div class="hidden-div" style=" height:10px">
+    @Html.DropDownList("SpecialityList", new SelectList(specialityList.Select(x => new { Id = x.Код_специальности, Text = x.Наименование }).ToList(), "Id", "Text"))
+    <h1> </h1>
+    <h1> </h1>
+</div>*@
+
+@grid.GetHtml(
+    tableStyle: "simple-little-table",
+    alternatingRowStyle: "alternate",
+    selectedRowStyle: "selected",
+    headerStyle: "header",
+    columns: grid.Columns(
+        grid.Column("Фамилия",
+                    style: "col2",
+                    canSort: true,
+                    format: @<text>
+                        <span id="специальность" class="display-mode">@item.Фамилия</span>
+                        <div class="myTextBox">@Html.TextBox("Surname", (string)item.Фамилия, new { @class = "edit-mode", style = "width: 90px" }) </div>
+                    </text>),
+       grid.Column("Имя",
+                    header : "Имя",
+                    style: "col3",
+                    canSort: true,
+                    format: @<text>
+                        <span id="врач" class="display-mode">@item.Имя</span>
+                        <div class="myTextBox">@Html.TextBox("Firstname", (string)item.Имя, new { @class = "edit-mode", style = "width: 90px" }) </div>
+                    </text>), 
+        grid.Column("Отчество",
+                    header: "Отчество",
+                    style: "col6",
+                    canSort: true,
+                    format: @<text>
+                        <span id="неделя" class="display-mode">@item.Отчество</span>
+                        <div class="myTextBox">@Html.TextBox("Patronymic", (string)item.Отчество, new { @class = "edit-mode", style = "width: 90px" }) </div>
+                    </text>),
+        grid.Column("",
+                    style: "col1",
+                    canSort: true,
+                    format: @<text>
+                        <button class="edit-staff display-mode btn-edit" id="@item.ID_сотрудника"><i class="icon-search"></i><strong>Изменить</strong></button>
+                        <button class="delete-staff mode btn-edit" id="@item.ID_сотрудника"><i class="icon-search"></i><strong>Удалить</strong></button>
+                        <button class="save-staff edit-mode btn-edit" id="@item.ID_сотрудника"><i class="icon-search"></i><strong>Сохранить</strong></button>
+                    </text>)@*,
+        grid.Column("Врач",
+                    header: "Врач",
+                    style: "col6",
+                    canSort: true,
+                    format: @<text>
+                    @{
+                        var speciality = specialityList.Where(x => x.Код_специальности == item.Код_специальности);
+  
+                    }
+                    <span id="6" class="display-mode">@speciality</span>
+                    @Html.TextBox("Saturday", (string)item.Код_специальности, new { @class = "edit-mode", size = 20 })
+                   </text>)*@
+
+))

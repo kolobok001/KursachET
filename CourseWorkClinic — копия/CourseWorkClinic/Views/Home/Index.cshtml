@@ -1,0 +1,50 @@
+﻿@{
+    AjaxOptions ao = new AjaxOptions();
+
+    ao.UpdateTargetId = "AjaxDiv";
+}
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-2.1.3.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+
+
+<div id="AjaxDiv">
+    @Html.Partial("IndexPage")
+</div>
+
+
+<div class="themeControll">
+    <div class="linkinner linkScroll">
+        <h3 data-ajax="true" data-ajax-mode="replace">
+            @Ajax.ActionLink("Главная", "Index", new { pageName = "Главная" }, ao)
+        </h3>
+
+        <h3 data-ajax="true" data-ajax-mode="replace">
+            @Ajax.ActionLink("Для льготников", "Index", new { pageName = "Для льготников" }, ao)
+        </h3>
+
+        <h3 data-ajax="true" data-ajax-mode="replace">
+            @Ajax.ActionLink("Контакты", "Index", new { pageName = "Контакты" }, ao)
+        </h3>
+
+        <h3 data-ajax="true" data-ajax-mode="replace">
+            @Ajax.ActionLink("Расписание врачей", "Index", new { pageName = "Расписание врачей" }, ao)
+        </h3>
+        <h3 data-ajax="true" data-ajax-mode="replace">
+            @Ajax.ActionLink("Запись на прием", "Index", new { pageName = "Запись на прием" }, ao)
+        </h3>
+
+
+    </div>
+</div>
+</div>
+
+<div class="page-bottom-info">
+    <div class="page-bottom-info-inner">
+        <div class="page-bottom-info-content text-center">
+            <h5>
+                Если у Вас есть вопросы, комментарии или замечания по поводу работы поликлиники,
+                пожалуйста, позвоните по телефону горячей линии (000) 555-5555
+            </h5>
+        </div>
+    </div>
+</div>

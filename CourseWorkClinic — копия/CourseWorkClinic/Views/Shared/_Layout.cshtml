@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title — приложение ASP.NET MVC</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        @if ((Request.IsAuthenticated) && (System.Web.HttpContext.Current.User.IsInRole("админ")))
+        {
+            <div id="tray" class="topbar" style="width: auto; background: url(../Images/back2.jpg);">
+                <div class="container">
+                    <a class="brand"><img src="@Url.Content("/images/ad_novus-fluid_logo.png")" width="440"></a>
+                    <div class="float-right">
+                        <section id="login">
+                            @Html.Partial("_LoginPartial")
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <div class="themeControll" style="left: 90px; top: 190px">
+                <div class="linkinner linkScroll">
+                    <h3>@Html.ActionLink("Управление сотрудниками", "MainAdmin", "Admin")</h3>
+                    <h3>@Html.ActionLink("Управление пациентами", "PatientDatabase", "Account")</h3>
+                    <h3>@Html.ActionLink("Расписание врачей", "SheduleOnly", "Account")</h3>
+                    <h3>@Html.ActionLink("Управление пользователями", "UserControl", "Admin")</h3>
+                </div>
+            </div>
+        }
+        else if ((Request.IsAuthenticated) && (System.Web.HttpContext.Current.User.IsInRole("регистратура")))
+        {
+            <div id="tray" class="topbar" style="width: auto; background: url(../Images/back1.jpg);">
+                <div class="container">
+                    <a class="brand"><img src="@Url.Content("/images/ad_novus-fluid_logo.png")" width="440"></a>
+                    <div class="float-right">
+                        <section id="login">
+                            @Html.Partial("_LoginPartial")
+                        </section>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="themeControll" style="left: 90px; top: 190px">
+                <div class="linkinner linkScroll">
+                    <h3>@Html.ActionLink("Регистрация", "RegistrationOnly", "Account")</h3>
+                    <h3>@Html.ActionLink("База пациентов", "PatientDatabase", "Account")</h3>
+                    <h3>@Html.ActionLink("Расписание врачей", "Schedule", "Home")</h3>
+                    <h3>@Html.ActionLink("Записи пациентов", "ReceptPage", "Account")</h3>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div id="tray" class="topbar" style="width: auto;">
+                <div class="container">
+                    <a class="brand"><img src="@Url.Content("/images/ad_novus-fluid_logo.png")" width="440"></a>
+                    
+                    <div class="float-right">
+                        <section id="login">
+                            @Html.Partial("_LoginPartial")
+                        </section>
+                    </div>
+                   
+                </div>
+            </div>
+        }
+
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year — Поликлиника Номер, г.Томск</p>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

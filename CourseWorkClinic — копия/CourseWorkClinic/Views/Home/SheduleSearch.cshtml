@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CourseWorkClinic.App_Data.Расписание_врачей>
+
+<div id="searchresults">
+
+    <table class="simple-little-table" cellspacing='0'>
+        <tr>
+            <th>Специальность</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Неделя</th>
+            <th>Понедельник</th>
+            <th>Вторник</th>
+            <th>Среда</th>
+            <th>Четверг</th>
+            <th>Пятница</th>
+            <th>Суббота</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Специальность)</td>
+                <td>@Html.DisplayFor(modelItem => item.Фамилия)</td>
+                <td>@Html.DisplayFor(modelItem => item.Имя)</td>
+                <td>@Html.DisplayFor(modelItem => item.Отчество)</td>
+                <td>@Html.DisplayFor(modelItem => item.неделя)</td>
+                <td>@Html.DisplayFor(modelItem => item.Понедельник)</td>
+                <td>@Html.DisplayFor(modelItem => item.Вторник)</td>
+                <td>@Html.DisplayFor(modelItem => item.Среда)</td>
+                <td>@Html.DisplayFor(modelItem => item.Четверг)</td>
+                <td>@Html.DisplayFor(modelItem => item.Пятница)</td>
+                <td>@Html.DisplayFor(modelItem => item.Суббота)</td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -1,0 +1,68 @@
+﻿@using CourseWorkClinic.App_Data
+
+@{
+    ViewBag.Title = "EditShedule";
+
+    ClinicEntities entities = new ClinicEntities();
+
+    IEnumerable<Список_врачей> model = (IEnumerable<Список_врачей>)entities.Список_врачей.ToList();
+}
+
+<section id="addSheduleForm">
+    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) 
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Добавление записи расписания</legend>
+            <ol>
+                @*<li>
+                    @Html.Label("Специальность")
+                    @Html.DropDownList("SpecialityList", new SelectList(model.Select(x => new { Id = x.Код_специальности, Text = x.Специальность }).ToList(), "Id", "Text"))
+                </li>*@
+                <li>
+                    @Html.Label("ФИО врача")
+                    @Html.DropDownList("DoctorList", new SelectList(model.Select(x => new { Text = x.Фамилия + " " + x.Имя + " " + x.Отчество + "  " + x.Специальность, Id = x.Id_врача }).ToList(), "Id", "Text"))
+                </li>
+                <li>
+                    @Html.Label("Понедельник:")
+                    @Html.TextBox("mondayBox", null)
+                    @Html.Label("Каб №:")
+                    @Html.TextBox("mondayKab", null)
+                </li>
+                <li>
+                    @Html.Label("Вторник:")
+                    @Html.TextBox("tuesdayBox", null)
+                    @Html.Label("Каб №:")
+                    @Html.TextBox("tuesdayKab", null)
+                </li>
+                <li>
+                    @Html.Label("Среда:")
+                    @Html.TextBox("wednesdayBox", null)
+                    @Html.Label("Каб №:")
+                    @Html.TextBox("wednesdayKab", null)
+                </li>
+                <li>
+                    @Html.Label("Четверг:")
+                    @Html.TextBox("thursdayBox", null)
+                    @Html.Label("Каб №:")
+                    @Html.TextBox("thursdayKab", null)
+                </li>
+                <li>
+                    @Html.Label("Пятница:")
+                    @Html.TextBox("fridayBox", null)
+                    @Html.Label("Каб №:")
+                    @Html.TextBox("fridayKab", null)
+                </li>
+                <li>
+                    @Html.Label("Суббота:")
+                    @Html.TextBox("saturdayBox", null)
+                    @Html.Label("Каб №:")
+                    @Html.TextBox("saturdayKab", null)
+                </li>
+            </ol>
+            <input type="submit" value="Добавить" />
+        </fieldset>
+    }
+</section>

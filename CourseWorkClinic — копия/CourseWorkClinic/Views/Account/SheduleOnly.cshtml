@@ -1,0 +1,276 @@
+﻿@using CourseWorkClinic.App_Data
+
+@{
+    ViewBag.Title = "Управление расписанием";
+    
+    ClinicEntities entities = new ClinicEntities();
+    
+   IEnumerable<Расписание_врачей> model = (IEnumerable<Расписание_врачей>)entities.Расписание_врачей.ToList();
+   WebGrid grid = new WebGrid(model, canPage: true, rowsPerPage: 5);
+   grid.Pager(WebGridPagerModes.NextPrevious);
+
+   //Разделитель для сплита
+   char[] _charFORsplit = new char[] { ' ', '-', ',', '№' };
+}
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-2.1.3.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+
+<script>
+    $(function () {
+        $('.edit-mode').hide();
+        $('.edit-shedule').on('click', function () {
+
+            var tr = $(this).parents('tr:first');
+            tr.find('.edit-mode, .display-mode').toggle();
+        });
+
+        $('.save-shedule').on('click', function () {
+            var tr = $(this).parents('tr:first');
+            var doctorId = $(this).prop('id');
+            var week = tr.find('#Week').val();
+
+            var mondayS = tr.find('#MondayS').val();
+            var mondayF = tr.find('#MondayF').val();
+            var mondayKab = tr.find('#MondayKab').val();
+
+            var tuesdayS = tr.find('#TuesdayS').val();
+            var tuesdayF = tr.find('#TuesdayF').val();
+            var tuesdayKab = tr.find('#TuesdayKab').val();
+
+            var wednesdayS = tr.find('#WednesdayS').val();
+            var wednesdayF = tr.find('#WednesdayF').val();
+            var wednesdayKab = tr.find('#WednesdayKab').val();
+
+            var thursdayS = tr.find('#ThursdayS').val();
+            var thursdayF = tr.find('#ThursdayF').val();
+            var thursdayKab = tr.find('#ThursdayKab').val();
+
+            var fridayS = tr.find('#FridayS').val();
+            var fridayF = tr.find('#FridayF').val();
+            var fridayKab = tr.find('#FridayKab').val();
+
+            var saturdayS = tr.find('#SaturdayS').val();
+            var saturdayF = tr.find('#SaturdayF').val();
+            var saturdayKab = tr.find('#SaturdayKab').val();
+
+            $.post('/Edit/EditSh', {
+                DoctorId: doctorId, Week: week, 
+                MondayS: mondayS,  MondayF: mondayF, MondayKab: mondayKab, 
+                TuesdayS: tuesdayS, TuesdayF: tuesdayF, TuesdayKab: tuesdayKab,
+                WednesdayS: wednesdayS, WednesdayF: wednesdayF, WednesdayKab: wednesdayKab,
+                ThursdayS: thursdayS, ThursdayF: thursdayF, ThursdayKab: thursdayKab,
+                FridayS: fridayS, FridayF: fridayF, FridayKab: fridayKab,
+                SaturdayS: saturdayS, SaturdayF: saturdayF, SaturdayKab: saturdayKab,
+            })
+            .done(function (result) {
+                window.location = '/Account/SheduleOnly';
+                alert('Данные сохранены');
+            })
+            .fail(function () {
+                console.log('server error');
+            });
+            tr.find('.edit-mode, .display-mode').toggle();
+        });
+
+        $('.delete-shedule').on('click', function () {
+            if (confirm("Вы уверены, что хотите удалить эту запись?")) {
+                var tr = $(this).parents('tr:first');
+                var doctorId = $(this).prop('id');
+                var week = tr.find('#Week').val();
+
+                $.post('/Edit/DeleteShedule', { DoctorId: doctorId, Week: week })
+                .done(function (result) {
+                    window.location = '/Account/SheduleOnly';
+                    alert('Данные удалены');
+                })
+                .fail(function () {
+                    console.log('server error');
+                });
+            }
+        });
+    })
+</script>
+
+<h6>@ViewBag.Title</h6>
+
+@*@Html.ActionLink("Добавить", "EditShedule", "Edit")*@
+
+@grid.GetHtml(
+    tableStyle: "simple-little-table",
+    alternatingRowStyle: "alternate",
+    selectedRowStyle: "selected",
+    headerStyle: "header",
+    columns: grid.Columns(
+        grid.Column("",
+                    style: "col1",
+                    canSort: true,
+                    format: @<text>
+                        <button class="edit-shedule display-mode" id="@item.Id_врача">Изменить</button>
+                        <button class="delete-shedule mode" id="@item.Id_врача">Удалить</button>
+                        <button class="save-shedule edit-mode" id="@item.Id_врача">Сохранить</button>
+                    </text>),
+        grid.Column("Специальность",
+                    style: "col2",
+                    canSort: true,
+                    format: @<text>
+                        <span id="специальность" class="mode">@item.Специальность</span>
+                        @*@Html.DropDownList("Speciality", new SelectList(model.Select(x => x.Специальность)), (string)item.Специальность, new { @class = "edit-mode" })*@
+                    </text>),
+       grid.Column("Фамилия",
+                    header : "ФИО врача",
+                    style: "col3",
+                    canSort: true,
+                    format: @<text>
+                        <span id="врач" class="mode">@item.Фамилия @item.Имя @item.Отчество</span>
+                    </text>),
+        grid.Column("Неделя",
+                    header: "Неделя",
+                    style: "col6",
+                    canSort: true,
+                    format: @<text>
+                        <span id="неделя" class="display-mode">@item.неделя</span>
+                        @Html.DropDownList("Week", new SelectList(new[] { "чет", "нечет" }, item.неделя), (string)item.неделя, new { @class = "edit-mode" })
+                    </text>),
+        grid.Column("Понедельник",
+                            header: "Понедельник",
+                            style: "col6",
+                            canSort: true,
+                            format: @<text>
+                                <span id="1" class="display-mode">@item.Понедельник</span>
+                                @{
+                                    if (item.Понедельник == "не работает")
+                                    {
+                                        <div class="edit-mode"> C  @Html.TextBox("MondayS", (string)item.Понедельник, new { @class = "edit-mode", style = "width: 90px" })</div>
+                                        <div class="edit-mode"> До  @Html.TextBox("MondayF", (string)item.Понедельник, new { @class = "edit-mode", style = "width: 90px" }) </div>
+                                       
+                                    }
+                                    else
+                                    {
+                                        string tempData = (string)item.Понедельник;
+                                        string[] split = tempData.Split(_charFORsplit, StringSplitOptions.RemoveEmptyEntries);
+
+                                        <div class="edit-mode"> C @Html.TextBox("MondayS", split[0], new { @class = "edit-mode", style = "width: 90px" })</div>
+                                        <div class="edit-mode"> До @Html.TextBox("MondayF", split[1], new { @class = "edit-mode", style = "width: 90px" }) </div>
+                                        
+                                    }
+                                }
+                            </text> ),
+        grid.Column("Вторник", header: "Вторник", style: "col6", canSort: true, format: @<text>
+                                <span id="2" class="display-mode">@item.Вторник</span>
+                                @{
+                                    if (item.Вторник == "не работает")
+                                    {
+                                        <div class="edit-mode"> C  @Html.TextBox("TuesdayS", (string)item.Вторник, new { @class = "edit-mode", style = "width: 90px" })</div>
+                                        <div class="edit-mode"> До  @Html.TextBox("TuesdayF", (string)item.Вторник, new { @class = "edit-mode", style = "width: 90px" }) </div>
+                                        
+                                    }
+                                    else
+                                    {
+                                        string tempData = (string)item.Вторник;
+                                        string[] split = tempData.Split(_charFORsplit, StringSplitOptions.RemoveEmptyEntries);
+
+                                        <div class="edit-mode"> C @Html.TextBox("TuesdayS", split[0], new { @class = "edit-mode", style = "width: 90px" })</div>
+                                        <div class="edit-mode"> До @Html.TextBox("TuesdayF", split[1], new { @class = "edit-mode", style = "width: 90px" }) </div>
+                                       
+                                    }
+                                }
+                            </text>),
+        grid.Column("Среда",
+                            header: "Среда",
+                            style: "col6",
+                            canSort: true,
+                            format: @<text>
+                                <span id="3" class="display-mode">@item.Среда</span>
+                                @{
+                                    if (item.Среда == "не работает")
+                                    {
+                                        <div class="edit-mode"> C  @Html.TextBox("WednesdayS", (string)item.Среда, new { @class = "edit-mode", style = "width: 90px" })</div>
+                                        <div class="edit-mode"> До  @Html.TextBox("WednesdayF", (string)item.Среда, new { @class = "edit-mode", style = "width: 90px" }) </div>
+                                       
+                                    }
+                                    else
+                                    {
+                                        string tempData = (string)item.Среда;
+                                        string[] split = tempData.Split(_charFORsplit, StringSplitOptions.RemoveEmptyEntries);
+
+                                        <div class="edit-mode"> C @Html.TextBox("WednesdayS", split[0], new { @class = "edit-mode", style = "width: 90px" })</div>
+                                        <div class="edit-mode"> До @Html.TextBox("WednesdayF", split[1], new { @class = "edit-mode", style = "width: 90px" }) </div>
+                                        
+                                    }
+                                }
+                            </text>),
+        grid.Column("Четверг",
+                            header: "Четверг",
+                            style: "col6",
+                            canSort: true,
+                            format: @<text>
+                                <span id="4" class="display-mode">@item.Четверг</span>
+                                @{
+                                    if (item.Четверг == "не работает")
+                                    {
+                                        <div class="edit-mode"> C  @Html.TextBox("ThursdayS", (string)item.Четверг, new { @class = "edit-mode", style = "width: 90px" })</div>
+                                        <div class="edit-mode"> До  @Html.TextBox("ThursdayF", (string)item.Четверг, new { @class = "edit-mode", style = "width: 90px" }) </div>
+                                       
+                                    }
+                                    else
+                                    {
+                                        string tempData = (string)item.Четверг;
+                                        string[] split = tempData.Split(_charFORsplit, StringSplitOptions.RemoveEmptyEntries);
+
+                                        <div class="edit-mode"> C @Html.TextBox("ThursdayS", split[0], new { @class = "edit-mode", style = "width: 90px" })</div>
+                                        <div class="edit-mode"> До @Html.TextBox("ThursdayF", split[1], new { @class = "edit-mode", style = "width: 90px" }) </div>
+                                        
+                                    }
+                                }
+                            </text>),
+        grid.Column("Пятница",
+                            header: "Пятница",
+                            style: "col6",
+                            canSort: true,
+                            format: @<text>
+                                <span id="5" class="display-mode">@item.Пятница</span>
+                                @{
+                                    if (item.Пятница == "не работает")
+                                    {
+                                        <div class="edit-mode"> C  @Html.TextBox("FridayS", (string)item.Пятница, new { @class = "edit-mode", style = "width: 90px" })</div>
+                                        <div class="edit-mode"> До  @Html.TextBox("FridayF", (string)item.Пятница, new { @class = "edit-mode", style = "width: 90px" }) </div>
+                                        
+                                    }
+                                    else
+                                    {
+                                        string tempData = (string)item.Пятница;
+                                        string[] split = tempData.Split(_charFORsplit, StringSplitOptions.RemoveEmptyEntries);
+
+                                        <div class="edit-mode"> C @Html.TextBox("FridayS", split[0], new { @class = "edit-mode", style = "width: 90px" })</div>
+                                        <div class="edit-mode"> До @Html.TextBox("FridayF", split[1], new { @class = "edit-mode", style = "width: 90px" }) </div>
+                                       
+                                    }
+                                }
+                            </text>),
+        grid.Column("Суббота",
+                            header: "Суббота",
+                            style: "col6",
+                            canSort: true,
+                            format: @<text>
+                                <span id="6" class="display-mode">@item.Суббота</span>
+                                @{
+                                    if (item.Суббота == "не работает")
+                                    {
+                                        <div class="edit-mode"> C  @Html.TextBox("SaturdayS", (string)item.Суббота, new { @class = "edit-mode", style = "width: 90px" })</div>
+                                        <div class="edit-mode"> До  @Html.TextBox("SaturdayF", (string)item.Суббота, new { @class = "edit-mode", style = "width: 90px" }) </div>
+                                        
+                                    }
+                                    else
+                                    {
+                                        string tempData = (string)item.Суббота;
+                                        string[] split = tempData.Split(_charFORsplit, StringSplitOptions.RemoveEmptyEntries);
+
+                                        <div class="edit-mode"> C @Html.TextBox("SaturdayS", split[0], new { @class = "edit-mode", style = "width: 90px" })</div>
+                                        <div class="edit-mode"> До @Html.TextBox("SaturdayF", split[1], new { @class = "edit-mode", style = "width: 90px" }) </div>
+                                       
+                                    }
+                                }
+                            </text>)
+                                            ))
+

@@ -1,0 +1,230 @@
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\CourseWorkClinic.dll.config
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\CourseWorkClinic.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\CourseWorkClinic.pdb
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\Antlr3.Runtime.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\EntityFramework.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\Microsoft.Web.Helpers.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\Microsoft.Web.Infrastructure.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\Newtonsoft.Json.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Helpers.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Mvc.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Optimization.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Providers.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Razor.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.Deployment.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.Razor.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\WebGrease.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\WebMatrix.Data.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\WebMatrix.WebData.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Helpers.xml
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\EntityFramework.xml
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\Newtonsoft.Json.xml
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Mvc.xml
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Razor.xml
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.xml
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.Deployment.xml
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.Razor.xml
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\WebMatrix.Data.xml
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\WebMatrix.WebData.xml
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Helpers.resources.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\EntityFramework.resources.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Mvc.resources.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Optimization.resources.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Providers.resources.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Razor.resources.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.WebPages.resources.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.WebPages.Deployment.resources.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.WebPages.Razor.resources.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.dll
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.pdb
+U:\Управление данными КП\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.csprojResolveAssemblyReference.cache
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\CourseWorkClinic.dll.config
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\CourseWorkClinic.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\CourseWorkClinic.pdb
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\Antlr3.Runtime.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\EntityFramework.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\Microsoft.Web.Helpers.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\Microsoft.Web.Infrastructure.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\Newtonsoft.Json.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.Helpers.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.Mvc.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.Optimization.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.Providers.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.Razor.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.WebPages.Deployment.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.WebPages.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.WebPages.Razor.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\WebGrease.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\WebMatrix.Data.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\WebMatrix.WebData.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.Helpers.xml
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\EntityFramework.xml
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\Newtonsoft.Json.xml
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.Mvc.xml
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.Razor.xml
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.WebPages.xml
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.WebPages.Deployment.xml
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.WebPages.Razor.xml
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\WebMatrix.Data.xml
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\WebMatrix.WebData.xml
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\System.Web.Helpers.resources.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\EntityFramework.resources.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\System.Web.Mvc.resources.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\System.Web.Optimization.resources.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\System.Web.Providers.resources.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\System.Web.Razor.resources.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\System.Web.WebPages.resources.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\System.Web.WebPages.Deployment.resources.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\System.Web.WebPages.Razor.resources.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\obj\Debug\CourseWorkClinic.dll
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\obj\Debug\CourseWorkClinic.pdb
+U:\Управление данными КП\CourseWorkClinic\CourseWorkClinic\obj\Debug\CourseWorkClinic.csprojResolveAssemblyReference.cache
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\CourseWorkClinic.dll.config
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\CourseWorkClinic.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\CourseWorkClinic.pdb
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\Antlr3.Runtime.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\EntityFramework.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\Microsoft.Web.Helpers.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\Microsoft.Web.Infrastructure.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\Newtonsoft.Json.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.Helpers.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.Mvc.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.Optimization.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.Providers.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.Razor.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.WebPages.Deployment.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.WebPages.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.WebPages.Razor.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\WebGrease.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\WebMatrix.Data.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\WebMatrix.WebData.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.Helpers.xml
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\EntityFramework.xml
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\Newtonsoft.Json.xml
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.Mvc.xml
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.Razor.xml
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.WebPages.xml
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.WebPages.Deployment.xml
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\System.Web.WebPages.Razor.xml
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\WebMatrix.Data.xml
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\WebMatrix.WebData.xml
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\System.Web.Helpers.resources.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\EntityFramework.resources.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\System.Web.Mvc.resources.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\System.Web.Optimization.resources.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\System.Web.Providers.resources.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\System.Web.Razor.resources.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\System.Web.WebPages.resources.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\System.Web.WebPages.Deployment.resources.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\bin\ru\System.Web.WebPages.Razor.resources.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\obj\Debug\CourseWorkClinic.csprojResolveAssemblyReference.cache
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\obj\Debug\CourseWorkClinic.dll
+U:\3 курс\Управление данными КП\CourseWorkClinic\CourseWorkClinic\obj\Debug\CourseWorkClinic.pdb
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\CourseWorkClinic.dll.config
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\CourseWorkClinic.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\CourseWorkClinic.pdb
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\Antlr3.Runtime.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\EntityFramework.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\Microsoft.Web.Helpers.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\Microsoft.Web.Infrastructure.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\Newtonsoft.Json.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Net.Http.Formatting.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Http.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Http.WebHost.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Mvc.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Optimization.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Providers.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Razor.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.Deployment.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.Razor.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\WebGrease.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\WebMatrix.Data.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\WebMatrix.WebData.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Helpers.xml
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\EntityFramework.xml
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\Newtonsoft.Json.xml
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Net.Http.Formatting.xml
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Http.xml
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Http.WebHost.xml
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Mvc.xml
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Razor.xml
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.xml
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.Deployment.xml
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.Razor.xml
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\WebMatrix.Data.xml
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\WebMatrix.WebData.xml
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Helpers.resources.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\EntityFramework.resources.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Net.Http.Formatting.resources.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Http.resources.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Http.WebHost.resources.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Mvc.resources.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Optimization.resources.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Providers.resources.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Razor.resources.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.WebPages.resources.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.WebPages.Deployment.resources.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.WebPages.Razor.resources.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.csprojAssemblyReference.cache
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.csproj.CoreCompileInputs.cache
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.csproj.CopyComplete
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.dll
+D:\ВУЗ\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.pdb
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\CourseWorkClinic.dll.config
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\CourseWorkClinic.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\CourseWorkClinic.pdb
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\Antlr3.Runtime.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\EntityFramework.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\Microsoft.Web.Helpers.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\Microsoft.Web.Infrastructure.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\Newtonsoft.Json.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Net.Http.Formatting.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Http.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Http.WebHost.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Mvc.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Optimization.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Providers.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Razor.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.Deployment.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.Razor.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\WebGrease.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\WebMatrix.Data.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\WebMatrix.WebData.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Helpers.xml
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\EntityFramework.xml
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\Newtonsoft.Json.xml
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Net.Http.Formatting.xml
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Http.xml
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Http.WebHost.xml
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Mvc.xml
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.Razor.xml
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.xml
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.Deployment.xml
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\System.Web.WebPages.Razor.xml
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\WebMatrix.Data.xml
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\WebMatrix.WebData.xml
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Helpers.resources.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\EntityFramework.resources.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Net.Http.Formatting.resources.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Http.resources.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Http.WebHost.resources.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Mvc.resources.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Optimization.resources.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Providers.resources.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.Razor.resources.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.WebPages.resources.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.WebPages.Deployment.resources.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.WebPages.Razor.resources.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.csprojAssemblyReference.cache
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.csproj.CoreCompileInputs.cache
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.csproj.CopyComplete
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.dll
+D:\ВУЗ\Не надо\Управл. данными\Поликлиника мвц\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.pdb

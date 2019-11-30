@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CourseWorkClinic.Models.ReceptionAtDoctor>
+
+@{
+    ViewBag.Title = "Приемы у врача";
+}
+
+    <div id="searchresults">
+        <table class="simple-little-table" cellspacing='0'>
+            <tr>
+                <th>Дата приема</th>
+                <th>Врача</th>
+                <th>Пациент</th>
+                <th>Диагноз</th>
+                <th>Рецепт</th>
+                <th>Примечание</th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Дата_приема)</td>
+
+                <td>@Html.DisplayFor(modelItem => item.ф_врача) @Html.DisplayFor(modelItem => item.и_врача) @Html.DisplayFor(modelItem => item.о_врача)</td>
+                <td>@Html.DisplayFor(modelItem => item.ф_пациента) @Html.DisplayFor(modelItem => item.и_пациента) @Html.DisplayFor(modelItem => item.о_пациента)</td>
+                <td>@Html.DisplayFor(modelItem => item.Диагноз)</td>
+                <td>@Html.DisplayFor(modelItem => item.Рецепт)</td>
+                <td>@Html.DisplayFor(modelItem => item.Примечание)</td>
+                <td><a href="~/Edit/EditRecept?id=@item.ID_приема">Редактировать</a></td>
+
+
+            </tr>
+            }
+
+        </table>
+    </div>
+
+
+
+
+
+

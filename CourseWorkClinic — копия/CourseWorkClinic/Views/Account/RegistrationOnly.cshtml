@@ -1,0 +1,66 @@
+﻿@using CourseWorkClinic.App_Data
+@model Пациенты
+
+@{
+    ViewBag.Title = "RegistrationOnly";
+
+    ClinicEntities entities = new ClinicEntities();
+
+    IEnumerable<Адреса> model = (IEnumerable<Адреса>)entities.Адреса.ToList();   
+}
+
+    <h2>Регистратура</h2>
+
+    <section id="regForm">
+        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend>Форма регистрации пациента</legend>
+                <ol>
+                    <li>
+                        @Html.Label("№ полиса")
+                        @Html.TextBoxFor(m => m.C__полиса)
+                        @Html.ValidationMessageFor(m => m.C__полиса, "Введите № полиса")
+                    </li>
+                    <li>
+                        @Html.Label("Фамилия")
+                        @Html.TextBoxFor(m => m.Фамилия)
+                        @Html.ValidationMessageFor(m => m.Фамилия, "Введите фамилию пациента")
+                    </li>
+                    <li>
+                        @Html.Label("Имя")
+                        @Html.TextBoxFor(m => m.Имя)
+                        @Html.ValidationMessageFor(m => m.Имя, "Введите имя пациента")
+                    </li>
+                    <li>
+                        @Html.Label("Отчество")
+                        @Html.TextBoxFor(m => m.Отчество)
+                        @Html.ValidationMessageFor(m => m.Отчество, "Введите отчество пациента")
+                    </li>
+                    <li>
+                        @Html.Label("Дата рождения")
+                        @Html.TextBoxFor(m => m.Дата_рождения)
+                        @Html.ValidationMessageFor(m => m.Дата_рождения, "Введите дату рождения")
+                    </li>
+                    <li>
+                        @Html.Label("Улица")
+                        @Html.DropDownListFor(m => m.Код_адреса, new SelectList(model.Select(x => new { Id = x.Код_адреса, Text = CourseWorkClinic.Models.Helper.GetAdress(x) }).ToList(), "Id", "Text"),"")
+                        @Html.ValidationMessageFor(m => m.Код_адреса, "Выберите адрес")
+                    </li>
+                </ol>
+                <input type="submit" value="Добавить" />
+            </fieldset>
+        }
+    </section>
+
+
+
+
+
+
+
+
+    

@@ -1,0 +1,95 @@
+﻿@using CourseWorkClinic.App_Data
+@model Прием
+
+@{
+    ViewBag.Title = "Добавление записи";
+
+    ClinicEntities entities = new ClinicEntities();
+
+    IEnumerable<Пациенты> model = (IEnumerable<Пациенты>)entities.Пациенты.ToList();
+    IEnumerable<CourseWorkClinic.Models.DoctorList> model2 = (from Врачи in entities.Врачи
+                                                              join Сотрудники in entities.Сотрудники on Врачи.ID_сотрудника equals Сотрудники.ID_сотрудника
+                                                              join Специальности in entities.Специальности on Врачи.Код_специальности equals Специальности.Код_специальности
+
+                                                              let p = new CourseWorkClinic.Models.DoctorList
+                                                              {
+
+                                                                  Id_врача = Врачи.ID_врача,
+
+                                                                  Фамилия = Сотрудники.Фамилия,
+                                                                  Имя = Сотрудники.Имя,
+                                                                  Отчество = Сотрудники.Отчество,
+                                                                  Специальность = Специальности.Наименование,
+                                                                  Код_специальности = Специальности.Код_специальности
+
+
+
+                                                              }
+                                                              select p).ToList();
+}
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-2.1.3.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+
+<script>
+    $(function () {
+
+
+        $('.save').on('click', function () {
+            alert('Нажали');
+            var data = $('#form').serialize();
+
+
+            $.post('/Home/AddReception', data)
+                .done(function (data) {
+                    alert(data.message);
+                    
+                        
+                })
+                .fail(function () {
+                    console.log('server error');
+                });
+
+        });
+    })
+</script>
+<h2>Регистратура</h2>
+
+<button name="save" class="save" id="save">Добавить</button>
+<form id="form">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+
+        <h3>Форма регистрации пациента</h3>
+
+
+        @Html.Label("Клиент")
+        @Html.DropDownListFor(m => m.ID_пациента, new SelectList(model.Select(x => new { Id = x.ID_пациента, Text = CourseWorkClinic.Models.Helper.GetFioPacient(x) }).ToList(), "Id", "Text"), "")
+        @Html.ValidationMessageFor(m => m.ID_пациента, "Выберите Пациента")
+
+        @Html.Label("Врач")
+        @Html.DropDownListFor(m => m.ID_врача, new SelectList(model2.Select(x => new { Id = x.Id_врача, Text = CourseWorkClinic.Models.Helper.GetFioDoctor(x) }).ToList(), "Id", "Text"), "")
+        @Html.ValidationMessageFor(m => m.ID_пациента, "Выберите Врача")
+
+        @Html.Label("Дата")
+        @Html.EditorFor(m => m.Дата)
+        @Html.ValidationMessageFor(m => m.Дата, "Введите дату")
+
+
+
+        
+
+
+    }
+</form>
+
+
+
+
+
+
+
+
+
