@@ -74,7 +74,7 @@
         @Html.ValidationMessageFor(m => m.ID_пациента, "Выберите Врача")
 
         @Html.Label("Дата")
-        @Html.EditorFor(m => m.Дата)
+        @Html.TextBoxFor(m => m.Дата,new {@type = "date" })
         @Html.ValidationMessageFor(m => m.Дата, "Введите дату")
 
 
