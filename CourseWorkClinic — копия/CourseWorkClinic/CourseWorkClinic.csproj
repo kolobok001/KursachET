@@ -399,6 +399,7 @@
     <Content Include="Views\Account\ReceptSearch.cshtml" />
     <Content Include="Views\Home\AddReception.cshtml" />
     <Content Include="Views\Edit\EditRecept.cshtml" />
+    <Content Include="Views\Edit\DeleteRecept.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

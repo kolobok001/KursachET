@@ -1,0 +1,17 @@
+﻿@using CourseWorkClinic.App_Data
+
+@{
+    var receptId = Request["ReceptId"];
+
+    using (ClinicEntities entities = new ClinicEntities())
+    {          
+        
+        Guid rId = Guid.Parse(receptId);
+        Прием myP = entities.Прием.Where(x => x.ID_приема == rId).First();
+        entities.Прием.Remove(myP);
+        entities.SaveChanges();
+        
+        //string expression = "DELETE FROM Пациенты WHERE [ID пациента] = '" + patientId + "'";
+        //entities.Database.ExecuteSqlCommand(expression);
+    }
+}

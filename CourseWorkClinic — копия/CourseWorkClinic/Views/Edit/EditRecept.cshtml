@@ -57,20 +57,23 @@
                     </li>
                     <li>
                         @Html.Label("Дата")
-                        @Html.EditorFor(m => m.Дата)
+                        @Html.TextBoxFor(m => m.Дата, "{0:dd.MM.yyyy}" )
                         @Html.ValidationMessageFor(m => m.Дата, "Введите дату")
                     </li>
 
 
 
                     <li>
-                        @Html.EditorFor(m => m.Диагноз)
+                        @Html.Label("Диагноз")
+                        @Html.TextAreaFor(m => m.Диагноз)
                     </li>
                     <li>
-                        @Html.EditorFor(m => m.Рецепт)
+                        @Html.Label("Рецепт")
+                        @Html.TextAreaFor(m => m.Рецепт)
                     </li>
                     <li>
-                        @Html.EditorFor(m => m.Примечание)
+                        @Html.Label("Примечание")
+                        @Html.TextAreaFor(m => m.Примечание)
                     </li>
 
 

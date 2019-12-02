@@ -211,6 +211,11 @@ namespace CourseWorkClinic.Controllers
         {
             return View();
         }
+        public ActionResult DeleteRecept()
+        {
+            return View();
+        }
+
         public ActionResult EditRecept(Guid id)
         {
             using (CourseWorkClinic.App_Data.ClinicEntities entities = new App_Data.ClinicEntities())

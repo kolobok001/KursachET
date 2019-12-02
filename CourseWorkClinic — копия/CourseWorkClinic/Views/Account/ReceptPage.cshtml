@@ -7,6 +7,26 @@
 
 <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-2.1.3.min.js")"></script>
 <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+<script>
+    $(function () {
+        
+
+        $('.delete-patient').on('click', function () {
+            if (confirm("Вы уверены, что хотите удалить эту запись?")) {
+                var tr = $(this).parents('tr:first');
+                var receptId = $(this).prop('id');
+                $.post('/Edit/DeleteRecept', { ReceptId: receptId })
+                    .done(function (result) {
+                        window.location = '/Account/ReceptPage';
+                        alert('Данные удалены');
+                    })
+                    .fail(function () {
+                        console.log('server error');
+                    });
+            }
+        });
+    })
+</script>
 
 <hgroup class="title">
     <h1>@ViewBag.Title</h1>
@@ -49,7 +69,9 @@
                 <td>@Html.DisplayFor(modelItem => item.Диагноз)</td>
                 <td>@Html.DisplayFor(modelItem => item.Рецепт)</td>
                 <td>@Html.DisplayFor(modelItem => item.Примечание)</td>
-                <td><a href="~/Edit/EditRecept?id=@item.ID_приема">Редактировать</a></td>
+                <td><a href="~/Edit/EditRecept?id=@item.ID_приема">Редактировать</a>
+                    <button class="delete-patient btn btn-danger" id="@item.ID_приема">Удалить</button>
+                </td>
 
 
             </tr>

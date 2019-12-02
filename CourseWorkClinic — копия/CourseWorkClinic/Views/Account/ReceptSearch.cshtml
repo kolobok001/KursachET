@@ -3,7 +3,26 @@
 @{
     ViewBag.Title = "Приемы у врача";
 }
+<script>
+    $(function () {
 
+
+        $('.delete-patient').on('click', function () {
+            if (confirm("Вы уверены, что хотите удалить эту запись?")) {
+                var tr = $(this).parents('tr:first');
+                var receptId = $(this).prop('id');
+                $.post('/Edit/DeleteRecept', { ReceptId: receptId })
+                    .done(function (result) {
+                        window.location = '/Account/ReceptPage';
+                        alert('Данные удалены');
+                    })
+                    .fail(function () {
+                        console.log('server error');
+                    });
+            }
+        });
+    })
+</script>
     <div id="searchresults">
         <table class="simple-little-table" cellspacing='0'>
             <tr>
@@ -26,7 +45,9 @@
                 <td>@Html.DisplayFor(modelItem => item.Диагноз)</td>
                 <td>@Html.DisplayFor(modelItem => item.Рецепт)</td>
                 <td>@Html.DisplayFor(modelItem => item.Примечание)</td>
-                <td><a href="~/Edit/EditRecept?id=@item.ID_приема">Редактировать</a></td>
+                <td><a href="~/Edit/EditRecept?id=@item.ID_приема">Редактировать</a>
+                    <button class="delete-patient btn btn-danger" id="@item.ID_приема">Удалить</button>
+                </td>
 
 
             </tr>
