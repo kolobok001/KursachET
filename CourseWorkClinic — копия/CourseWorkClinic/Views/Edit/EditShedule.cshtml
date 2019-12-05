@@ -1,11 +1,29 @@
 ﻿@using CourseWorkClinic.App_Data
 
 @{
-    ViewBag.Title = "EditShedule";
+    ViewBag.Title = "Добавление расписания";
 
     ClinicEntities entities = new ClinicEntities();
 
-    IEnumerable<Список_врачей> model = (IEnumerable<Список_врачей>)entities.Список_врачей.ToList();
+    IEnumerable<CourseWorkClinic.Models.DoctorList> model = (from Врачи in entities.Врачи
+                                                             join Сотрудники in entities.Сотрудники on Врачи.ID_сотрудника equals Сотрудники.ID_сотрудника
+                                                             join Специальности in entities.Специальности on Врачи.Код_специальности equals Специальности.Код_специальности
+
+                                                             let p = new CourseWorkClinic.Models.DoctorList
+                                                             {
+
+                                                                 Id_врача = Врачи.ID_врача,
+
+                                                                 Фамилия = Сотрудники.Фамилия,
+                                                                 Имя = Сотрудники.Имя,
+                                                                 Отчество = Сотрудники.Отчество,
+                                                                 Специальность = Специальности.Наименование,
+                                                                 Код_специальности = Специальности.Код_специальности
+
+
+
+                                                             }
+                                                             select p).ToList();
 }
 
 <section id="addSheduleForm">

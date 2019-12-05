@@ -215,6 +215,10 @@ namespace CourseWorkClinic.Controllers
         {
             return View();
         }
+        public ActionResult EditShedule()
+        {
+            return View();
+        }
 
         public ActionResult EditRecept(Guid id)
         {
