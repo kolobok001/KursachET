@@ -1,5 +1,6 @@
 ﻿@using CourseWorkClinic.App_Data
 @model IEnumerable<CourseWorkClinic.App_Data.Сотрудники>
+
 @{
 
     WebGrid grid = new WebGrid(Model, canPage: true, rowsPerPage: 10);
@@ -29,10 +30,12 @@
             var surname = $("#Newsurname").val();
             var firstname = $("#Newfirstname").val();
             var patronymic = $("#Newpatronymic").val();
+            var speciality = $("#SpecialityList").val();
 
             $.post('/Edit/AddStaff', {
                 Surname: surname, Firstname: firstname,
-                Patronymic: patronymic
+                Patronymic: patronymic,
+                Speciality: speciality
             })
             .done(function (result) {
                 window.location = '/Admin/MainAdmin';
@@ -112,11 +115,11 @@
     <input type="text" name="Newpatronymic" id="Newpatronymic" class="form-control" placeholder="Отчество" value="">
 </div>
 
-@*<div class="hidden-div" style=" height:10px">
+<div class="hidden-div" style=" height:10px">
     @Html.DropDownList("SpecialityList", new SelectList(specialityList.Select(x => new { Id = x.Код_специальности, Text = x.Наименование }).ToList(), "Id", "Text"))
     <h1> </h1>
     <h1> </h1>
-</div>*@
+</div>
 
 @grid.GetHtml(
     tableStyle: "simple-little-table",

@@ -315,13 +315,20 @@ namespace CourseWorkClinic.Controllers
         {
             using (ClinicEntities entities = new ClinicEntities())
             {
+                Врачи newVrach = new Врачи();
                 Сотрудники newStaff = new Сотрудники();
                 newStaff.ID_сотрудника = Guid.NewGuid();
+                newVrach.ID_врача = Guid.NewGuid();
+                newVrach.ID_сотрудника = newStaff.ID_сотрудника;
                 newStaff.Фамилия = Request["Surname"];
                 newStaff.Имя = Request["Firstname"];
                 newStaff.Отчество = Request["Patronymic"];
+                 
+               
+                newVrach.Код_специальности = Convert.ToInt16(Request["Speciality"]);
 
                 entities.Сотрудники.Add(newStaff);
+                entities.Врачи.Add(newVrach);
                 entities.SaveChanges();
             }
             return View();
