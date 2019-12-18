@@ -54,7 +54,7 @@
 </script>
 <h2>Регистратура</h2>
 
-<button name="save" class="save" id="save">Добавить</button>
+
 <form id="form">
     @using (Html.BeginForm())
     {
@@ -74,12 +74,12 @@
         @Html.ValidationMessageFor(m => m.ID_пациента, "Выберите Врача")
 
         @Html.Label("Дата")
-        @Html.TextBoxFor(m => m.Дата,new {@type = "date" })
+        @Html.TextBoxFor(m => m.Дата, new { @type = "date" })
         @Html.ValidationMessageFor(m => m.Дата, "Введите дату")
+        <p><button name="save" class="save" id="save">Записать</button></p>  
 
 
 
-        
 
 
     }
