@@ -88,7 +88,7 @@ namespace CourseWorkClinic.Controllers
                 return View(model);
             }
         }
-
+        
         [AllowAnonymous]
 
 

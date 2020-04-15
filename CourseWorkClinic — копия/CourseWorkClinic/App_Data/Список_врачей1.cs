@@ -11,11 +11,9 @@ namespace CourseWorkClinic.App_Data
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class Список_врачей1
     {
-        
-
         public string Специальность { get; set; }
         public int Код_специальности { get; set; }
         public string Фамилия { get; set; }

@@ -4,14 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище ClinicModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="Хранилище ClinicModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Nullable="false" MaxLength="128" Type="nvarchar" />
+          <Property Name="principal_id" Nullable="false" Type="int" />
+          <Property Name="diagram_id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
@@ -19,23 +19,23 @@
           <Key>
             <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="56" Nullable="false" />
+          <Property Name="UserId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="UserName" Nullable="false" MaxLength="56" Type="nvarchar" />
         </EntityType>
         <EntityType Name="webpages_Membership">
           <Key>
             <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="UserId" Nullable="false" Type="int" />
           <Property Name="CreateDate" Type="datetime" />
-          <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="ConfirmationToken" MaxLength="128" Type="nvarchar" />
           <Property Name="IsConfirmed" Type="bit" />
           <Property Name="LastPasswordFailureDate" Type="datetime" />
-          <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Nullable="false" Type="int" />
+          <Property Name="Password" Nullable="false" MaxLength="128" Type="nvarchar" />
           <Property Name="PasswordChangedDate" Type="datetime" />
-          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordSalt" Nullable="false" MaxLength="128" Type="nvarchar" />
+          <Property Name="PasswordVerificationToken" MaxLength="128" Type="nvarchar" />
           <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
         </EntityType>
         <EntityType Name="webpages_OAuthMembership">
@@ -43,128 +43,105 @@
             <PropertyRef Name="Provider" />
             <PropertyRef Name="ProviderUserId" />
           </Key>
-          <Property Name="Provider" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="ProviderUserId" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Provider" Nullable="false" MaxLength="30" Type="nvarchar" />
+          <Property Name="ProviderUserId" Nullable="false" MaxLength="100" Type="nvarchar" />
+          <Property Name="UserId" Nullable="false" Type="int" />
         </EntityType>
         <EntityType Name="webpages_Roles">
           <Key>
             <PropertyRef Name="RoleId" />
           </Key>
-          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="RoleId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="RoleName" Nullable="false" MaxLength="256" Type="nvarchar" />
         </EntityType>
         <EntityType Name="webpages_UsersInRoles">
           <Key>
             <PropertyRef Name="webpages_Roles_RoleId" />
             <PropertyRef Name="UserProfile_UserId" />
           </Key>
-          <Property Name="webpages_Roles_RoleId" Type="int" Nullable="false" />
-          <Property Name="UserProfile_UserId" Type="int" Nullable="false" />
+          <Property Name="webpages_Roles_RoleId" Nullable="false" Type="int" />
+          <Property Name="UserProfile_UserId" Nullable="false" Type="int" />
         </EntityType>
         <EntityType Name="Адреса">
           <Key>
             <PropertyRef Name="Код адреса" />
           </Key>
-          <Property Name="Код адреса" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Улица" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Дом" Type="float" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Адреса_в_участках">
-          <Key>
-            <PropertyRef Name="Адреса Код адреса" />
-            <PropertyRef Name="Участки C  участка" />
-          </Key>
-          <Property Name="Адреса Код адреса" Type="int" Nullable="false" />
-          <Property Name="Участки C  участка" Type="int" Nullable="false" />
+          <Property Name="Код адреса" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Улица" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="Дом" Nullable="false" Type="float" />
         </EntityType>
         <EntityType Name="Врачи">
           <Key>
             <PropertyRef Name="ID врача" />
           </Key>
-          <Property Name="ID врача" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Код специальности" Type="int" Nullable="false" />
-          <Property Name="ID сотрудника" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ID врача" Nullable="false" Type="uniqueidentifier" />
+          <Property Name="Код специальности" Nullable="false" Type="int" />
+          <Property Name="ID сотрудника" Nullable="false" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="Дни_недели">
           <Key>
             <PropertyRef Name="Код_дня" />
           </Key>
-          <Property Name="Код_дня" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Наименование" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Код_дня" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Наименование" Nullable="false" MaxLength="11" Type="varchar" />
         </EntityType>
         <EntityType Name="Направление">
           <Key>
             <PropertyRef Name="C направления" />
           </Key>
-          <Property Name="C направления" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ID врача" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ID врача ведущего прием" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ID пациента" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="C направления" Nullable="false" Type="uniqueidentifier" />
+          <Property Name="ID врача" Nullable="false" Type="uniqueidentifier" />
+          <Property Name="ID врача ведущего прием" Nullable="false" Type="uniqueidentifier" />
+          <Property Name="ID пациента" Nullable="false" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="Пациенты">
           <Key>
             <PropertyRef Name="ID пациента" />
           </Key>
-          <Property Name="ID пациента" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="№ полиса" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="Фамилия" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Имя" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Отчество" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Дата рождения" Type="datetime" Nullable="false" />
+          <Property Name="ID пациента" Nullable="false" Type="uniqueidentifier" />
+          <Property Name="№ полиса" Nullable="false" MaxLength="30" Type="varchar" />
+          <Property Name="Фамилия" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="Имя" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="Отчество" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="Дата рождения" Nullable="false" Type="datetime" />
           <Property Name="Дата смерти" Type="datetime" />
-          <Property Name="Код адреса" Type="int" Nullable="false" />
+          <Property Name="Код адреса" Nullable="false" Type="int" />
         </EntityType>
         <EntityType Name="Пользователи">
           <Key>
             <PropertyRef Name="ID пользователя" />
           </Key>
-          <Property Name="ID пользователя" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="login" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="role" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID пользователя" Nullable="false" Type="uniqueidentifier" />
+          <Property Name="login" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="password" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="role" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="Image" MaxLength="50" Type="varchar" />
         </EntityType>
         <EntityType Name="Прием">
           <Key>
             <PropertyRef Name="ID приема" />
           </Key>
-          <Property Name="ID приема" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Дата" Type="datetime" Nullable="false" />
+          <Property Name="ID приема" Nullable="false" Type="uniqueidentifier" />
+          <Property Name="Дата" Nullable="false" Type="datetime" />
           <Property Name="Длительность" Type="float" />
-          <Property Name="Диагноз" Type="varchar" MaxLength="150" />
-          <Property Name="Рецепт" Type="varchar" MaxLength="800" />
-          <Property Name="Примечание" Type="varchar" MaxLength="800" />
+          <Property Name="Диагноз" MaxLength="150" Type="varchar" />
+          <Property Name="Рецепт" MaxLength="800" Type="varchar" />
+          <Property Name="Примечание" MaxLength="800" Type="varchar" />
           <Property Name="№ направления" Type="uniqueidentifier" />
-          <Property Name="ID врача" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ID пациента" Type="uniqueidentifier" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Процедуры">
-          <Key>
-            <PropertyRef Name="Код процедуры" />
-          </Key>
-          <Property Name="Код процедуры" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Наименование" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Код специальности" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Процедуры_в_приеме">
-          <Key>
-            <PropertyRef Name="Прием_ID_приема" />
-            <PropertyRef Name="Процедуры_Код_процедуры" />
-          </Key>
-          <Property Name="Прием_ID_приема" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Процедуры_Код_процедуры" Type="int" Nullable="false" />
+          <Property Name="ID врача" Nullable="false" Type="uniqueidentifier" />
+          <Property Name="ID пациента" Nullable="false" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="Расписание">
           <Key>
             <PropertyRef Name="ID записи" />
           </Key>
-          <Property Name="ID записи" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Неделя" Type="varchar" MaxLength="5" Nullable="false" />
-          <Property Name="Время начала" Type="time" Precision="7" Nullable="false" />
-          <Property Name="Время окончания" Type="time" Precision="7" Nullable="false" />
-          <Property Name="№ кабинета" Type="int" Nullable="false" />
-          <Property Name="ID врача" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Код дня" Type="int" Nullable="false" />
+          <Property Name="ID записи" Nullable="false" Type="uniqueidentifier" />
+          <Property Name="Неделя" Nullable="false" MaxLength="5" Type="varchar" />
+          <Property Name="Время начала" Nullable="false" Precision="7" Type="time" />
+          <Property Name="Время окончания" Nullable="false" Precision="7" Type="time" />
+          <Property Name="№ кабинета" Nullable="false" Type="int" />
+          <Property Name="ID врача" Nullable="false" Type="uniqueidentifier" />
+          <Property Name="Код дня" Nullable="false" Type="int" />
         </EntityType>
         <EntityType Name="Расписание_врачей">
           <Key>
@@ -175,34 +152,34 @@
             <PropertyRef Name="неделя" />
             <PropertyRef Name="Id врача" />
           </Key>
-          <Property Name="Специальность" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Фамилия" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Имя" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Отчество" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="неделя" Type="varchar" MaxLength="5" Nullable="false" />
-          <Property Name="Понедельник" Type="varchar" MaxLength="50" />
-          <Property Name="Вторник" Type="varchar" MaxLength="50" />
-          <Property Name="Среда" Type="varchar" MaxLength="50" />
-          <Property Name="Четверг" Type="varchar" MaxLength="50" />
-          <Property Name="Пятница" Type="varchar" MaxLength="50" />
-          <Property Name="Суббота" Type="varchar" MaxLength="50" />
-          <Property Name="Id врача" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Специальность" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="Фамилия" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="Имя" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="Отчество" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="неделя" Nullable="false" MaxLength="5" Type="varchar" />
+          <Property Name="Понедельник" MaxLength="50" Type="varchar" />
+          <Property Name="Вторник" MaxLength="50" Type="varchar" />
+          <Property Name="Среда" MaxLength="50" Type="varchar" />
+          <Property Name="Четверг" MaxLength="50" Type="varchar" />
+          <Property Name="Пятница" MaxLength="50" Type="varchar" />
+          <Property Name="Суббота" MaxLength="50" Type="varchar" />
+          <Property Name="Id врача" Nullable="false" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="Сотрудники">
           <Key>
             <PropertyRef Name="ID сотрудника" />
           </Key>
-          <Property Name="ID сотрудника" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Фамилия" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Имя" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Отчество" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID сотрудника" Nullable="false" Type="uniqueidentifier" />
+          <Property Name="Фамилия" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="Имя" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="Отчество" Nullable="false" MaxLength="50" Type="varchar" />
         </EntityType>
         <EntityType Name="Специальности">
           <Key>
             <PropertyRef Name="Код специальности" />
           </Key>
-          <Property Name="Код специальности" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Наименование" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Код специальности" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Наименование" Nullable="false" MaxLength="50" Type="varchar" />
         </EntityType>
         <EntityType Name="Список_врачей">
           <Key>
@@ -213,31 +190,24 @@
             <PropertyRef Name="Отчество" />
             <PropertyRef Name="Id врача" />
           </Key>
-          <Property Name="Специальность" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Код специальности" Type="int" Nullable="false" />
-          <Property Name="Фамилия" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Имя" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Отчество" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Id врача" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Специальность" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="Код специальности" Nullable="false" Type="int" />
+          <Property Name="Фамилия" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="Имя" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="Отчество" Nullable="false" MaxLength="50" Type="varchar" />
+          <Property Name="Id врача" Nullable="false" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="Таблица участков">
           <Key>
             <PropertyRef Name="№ участка" />
           </Key>
-          <Property Name="№ участка" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ФИО врача" Type="varchar" MaxLength="1000" />
-          <Property Name="Адрес" Type="varchar" MaxLength="1000" />
-        </EntityType>
-        <EntityType Name="Участки">
-          <Key>
-            <PropertyRef Name="C участка" />
-          </Key>
-          <Property Name="C участка" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID врача" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="№ участка" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="ФИО врача" MaxLength="1000" Type="varchar" />
+          <Property Name="Адрес" MaxLength="1000" Type="varchar" />
         </EntityType>
         <Association Name="FK_webpages_UsersInRoles_UserProfile">
-          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
-          <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+          <End Type="Self.UserProfile" Multiplicity="1" Role="UserProfile" />
+          <End Type="Self.webpages_UsersInRoles" Multiplicity="*" Role="webpages_UsersInRoles" />
           <ReferentialConstraint>
             <Principal Role="UserProfile">
               <PropertyRef Name="UserId" />
@@ -248,8 +218,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_webpages_UsersInRoles_webpages_Roles">
-          <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="1" />
-          <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+          <End Type="Self.webpages_Roles" Multiplicity="1" Role="webpages_Roles" />
+          <End Type="Self.webpages_UsersInRoles" Multiplicity="*" Role="webpages_UsersInRoles" />
           <ReferentialConstraint>
             <Principal Role="webpages_Roles">
               <PropertyRef Name="RoleId" />
@@ -259,33 +229,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Адреса_в_участках_Адреса">
-          <End Role="Адреса" Type="Self.Адреса" Multiplicity="1" />
-          <End Role="Адреса_в_участках" Type="Self.Адреса_в_участках" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Адреса">
-              <PropertyRef Name="Код адреса" />
-            </Principal>
-            <Dependent Role="Адреса_в_участках">
-              <PropertyRef Name="Адреса Код адреса" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Адреса_в_участках_Участки">
-          <End Role="Участки" Type="Self.Участки" Multiplicity="1" />
-          <End Role="Адреса_в_участках" Type="Self.Адреса_в_участках" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Участки">
-              <PropertyRef Name="C участка" />
-            </Principal>
-            <Dependent Role="Адреса_в_участках">
-              <PropertyRef Name="Участки C  участка" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Ведут">
-          <End Role="Врачи" Type="Self.Врачи" Multiplicity="1" />
-          <End Role="Прием" Type="Self.Прием" Multiplicity="*" />
+          <End Type="Self.Врачи" Multiplicity="1" Role="Врачи" />
+          <End Type="Self.Прием" Multiplicity="*" Role="Прием" />
           <ReferentialConstraint>
             <Principal Role="Врачи">
               <PropertyRef Name="ID врача" />
@@ -296,8 +242,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Владеют">
-          <End Role="Специальности" Type="Self.Специальности" Multiplicity="1" />
-          <End Role="Врачи" Type="Self.Врачи" Multiplicity="*" />
+          <End Type="Self.Специальности" Multiplicity="1" Role="Специальности" />
+          <End Type="Self.Врачи" Multiplicity="*" Role="Врачи" />
           <ReferentialConstraint>
             <Principal Role="Специальности">
               <PropertyRef Name="Код специальности" />
@@ -308,8 +254,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ВС">
-          <End Role="Сотрудники" Type="Self.Сотрудники" Multiplicity="1" />
-          <End Role="Врачи" Type="Self.Врачи" Multiplicity="*" />
+          <End Type="Self.Сотрудники" Multiplicity="1" Role="Сотрудники" />
+          <End Type="Self.Врачи" Multiplicity="*" Role="Врачи" />
           <ReferentialConstraint>
             <Principal Role="Сотрудники">
               <PropertyRef Name="ID сотрудника" />
@@ -320,8 +266,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Выдают">
-          <End Role="Врачи" Type="Self.Врачи" Multiplicity="1" />
-          <End Role="Направление" Type="Self.Направление" Multiplicity="*" />
+          <End Type="Self.Врачи" Multiplicity="1" Role="Врачи" />
+          <End Type="Self.Направление" Multiplicity="*" Role="Направление" />
           <ReferentialConstraint>
             <Principal Role="Врачи">
               <PropertyRef Name="ID врача" />
@@ -332,8 +278,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Дни_в_расписании">
-          <End Role="Дни_недели" Type="Self.Дни_недели" Multiplicity="1" />
-          <End Role="Расписание" Type="Self.Расписание" Multiplicity="*" />
+          <End Type="Self.Дни_недели" Multiplicity="1" Role="Дни_недели" />
+          <End Type="Self.Расписание" Multiplicity="*" Role="Расписание" />
           <ReferentialConstraint>
             <Principal Role="Дни_недели">
               <PropertyRef Name="Код_дня" />
@@ -344,8 +290,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Живут">
-          <End Role="Адреса" Type="Self.Адреса" Multiplicity="1" />
-          <End Role="Пациенты" Type="Self.Пациенты" Multiplicity="*" />
+          <End Type="Self.Адреса" Multiplicity="1" Role="Адреса" />
+          <End Type="Self.Пациенты" Multiplicity="*" Role="Пациенты" />
           <ReferentialConstraint>
             <Principal Role="Адреса">
               <PropertyRef Name="Код адреса" />
@@ -356,8 +302,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_К_кому_направляется">
-          <End Role="Врачи" Type="Self.Врачи" Multiplicity="1" />
-          <End Role="Направление" Type="Self.Направление" Multiplicity="*" />
+          <End Type="Self.Врачи" Multiplicity="1" Role="Врачи" />
+          <End Type="Self.Направление" Multiplicity="*" Role="Направление" />
           <ReferentialConstraint>
             <Principal Role="Врачи">
               <PropertyRef Name="ID врача" />
@@ -367,21 +313,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Назначены">
-          <End Role="Врачи" Type="Self.Врачи" Multiplicity="1" />
-          <End Role="Участки" Type="Self.Участки" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Врачи">
-              <PropertyRef Name="ID врача" />
-            </Principal>
-            <Dependent Role="Участки">
-              <PropertyRef Name="ID врача" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Направление_Пациенты">
-          <End Role="Пациенты" Type="Self.Пациенты" Multiplicity="1" />
-          <End Role="Направление" Type="Self.Направление" Multiplicity="*" />
+          <End Type="Self.Пациенты" Multiplicity="1" Role="Пациенты" />
+          <End Type="Self.Направление" Multiplicity="*" Role="Направление" />
           <ReferentialConstraint>
             <Principal Role="Пациенты">
               <PropertyRef Name="ID пациента" />
@@ -392,8 +326,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Направляет">
-          <End Role="Направление" Type="Self.Направление" Multiplicity="0..1" />
-          <End Role="Прием" Type="Self.Прием" Multiplicity="*" />
+          <End Type="Self.Направление" Multiplicity="0..1" Role="Направление" />
+          <End Type="Self.Прием" Multiplicity="*" Role="Прием" />
           <ReferentialConstraint>
             <Principal Role="Направление">
               <PropertyRef Name="C направления" />
@@ -403,21 +337,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Относятся_к">
-          <End Role="Специальности" Type="Self.Специальности" Multiplicity="1" />
-          <End Role="Процедуры" Type="Self.Процедуры" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Специальности">
-              <PropertyRef Name="Код специальности" />
-            </Principal>
-            <Dependent Role="Процедуры">
-              <PropertyRef Name="Код специальности" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Посещают">
-          <End Role="Пациенты" Type="Self.Пациенты" Multiplicity="1" />
-          <End Role="Прием" Type="Self.Прием" Multiplicity="*" />
+          <End Type="Self.Пациенты" Multiplicity="1" Role="Пациенты" />
+          <End Type="Self.Прием" Multiplicity="*" Role="Прием" />
           <ReferentialConstraint>
             <Principal Role="Пациенты">
               <PropertyRef Name="ID пациента" />
@@ -427,33 +349,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Процедуры_в_приеме_Прием">
-          <End Role="Прием" Type="Self.Прием" Multiplicity="1" />
-          <End Role="Процедуры_в_приеме" Type="Self.Процедуры_в_приеме" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Прием">
-              <PropertyRef Name="ID приема" />
-            </Principal>
-            <Dependent Role="Процедуры_в_приеме">
-              <PropertyRef Name="Прием_ID_приема" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Процедуры_в_приеме_Процедуры">
-          <End Role="Процедуры" Type="Self.Процедуры" Multiplicity="1" />
-          <End Role="Процедуры_в_приеме" Type="Self.Процедуры_в_приеме" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Процедуры">
-              <PropertyRef Name="Код процедуры" />
-            </Principal>
-            <Dependent Role="Процедуры_в_приеме">
-              <PropertyRef Name="Процедуры_Код_процедуры" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Работают_по_времени">
-          <End Role="Врачи" Type="Self.Врачи" Multiplicity="1" />
-          <End Role="Расписание" Type="Self.Расписание" Multiplicity="*" />
+          <End Type="Self.Врачи" Multiplicity="1" Role="Врачи" />
+          <End Type="Self.Расписание" Multiplicity="*" Role="Расписание" />
           <ReferentialConstraint>
             <Principal Role="Врачи">
               <PropertyRef Name="ID врача" />
@@ -472,97 +370,69 @@
           <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="webpages_UsersInRoles" EntityType="Self.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Адреса" EntityType="Self.Адреса" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Адреса_в_участках" EntityType="Self.Адреса_в_участках" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Врачи" EntityType="Self.Врачи" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Дни_недели" EntityType="Self.Дни_недели" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Направление" EntityType="Self.Направление" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Пациенты" EntityType="Self.Пациенты" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Пользователи" EntityType="Self.Пользователи" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Прием" EntityType="Self.Прием" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Процедуры" EntityType="Self.Процедуры" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Процедуры_в_приеме" EntityType="Self.Процедуры_в_приеме" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Расписание" EntityType="Self.Расписание" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Расписание_врачей" EntityType="Self.Расписание_врачей" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Сотрудники" EntityType="Self.Сотрудники" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Специальности" EntityType="Self.Специальности" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Список_врачей" EntityType="Self.Список_врачей" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Таблица участков" EntityType="Self.Таблица участков" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Участки" EntityType="Self.Участки" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_webpages_UsersInRoles_UserProfile" Association="Self.FK_webpages_UsersInRoles_UserProfile">
-            <End Role="UserProfile" EntitySet="UserProfile" />
-            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+            <End EntitySet="UserProfile" Role="UserProfile" />
+            <End EntitySet="webpages_UsersInRoles" Role="webpages_UsersInRoles" />
           </AssociationSet>
           <AssociationSet Name="FK_webpages_UsersInRoles_webpages_Roles" Association="Self.FK_webpages_UsersInRoles_webpages_Roles">
-            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
-            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Адреса_в_участках_Адреса" Association="Self.FK_Адреса_в_участках_Адреса">
-            <End Role="Адреса" EntitySet="Адреса" />
-            <End Role="Адреса_в_участках" EntitySet="Адреса_в_участках" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Адреса_в_участках_Участки" Association="Self.FK_Адреса_в_участках_Участки">
-            <End Role="Участки" EntitySet="Участки" />
-            <End Role="Адреса_в_участках" EntitySet="Адреса_в_участках" />
+            <End EntitySet="webpages_Roles" Role="webpages_Roles" />
+            <End EntitySet="webpages_UsersInRoles" Role="webpages_UsersInRoles" />
           </AssociationSet>
           <AssociationSet Name="FK_Ведут" Association="Self.FK_Ведут">
-            <End Role="Врачи" EntitySet="Врачи" />
-            <End Role="Прием" EntitySet="Прием" />
+            <End EntitySet="Врачи" Role="Врачи" />
+            <End EntitySet="Прием" Role="Прием" />
           </AssociationSet>
           <AssociationSet Name="FK_Владеют" Association="Self.FK_Владеют">
-            <End Role="Специальности" EntitySet="Специальности" />
-            <End Role="Врачи" EntitySet="Врачи" />
+            <End EntitySet="Специальности" Role="Специальности" />
+            <End EntitySet="Врачи" Role="Врачи" />
           </AssociationSet>
           <AssociationSet Name="FK_ВС" Association="Self.FK_ВС">
-            <End Role="Сотрудники" EntitySet="Сотрудники" />
-            <End Role="Врачи" EntitySet="Врачи" />
+            <End EntitySet="Сотрудники" Role="Сотрудники" />
+            <End EntitySet="Врачи" Role="Врачи" />
           </AssociationSet>
           <AssociationSet Name="FK_Выдают" Association="Self.FK_Выдают">
-            <End Role="Врачи" EntitySet="Врачи" />
-            <End Role="Направление" EntitySet="Направление" />
+            <End EntitySet="Врачи" Role="Врачи" />
+            <End EntitySet="Направление" Role="Направление" />
           </AssociationSet>
           <AssociationSet Name="FK_Дни_в_расписании" Association="Self.FK_Дни_в_расписании">
-            <End Role="Дни_недели" EntitySet="Дни_недели" />
-            <End Role="Расписание" EntitySet="Расписание" />
+            <End EntitySet="Дни_недели" Role="Дни_недели" />
+            <End EntitySet="Расписание" Role="Расписание" />
           </AssociationSet>
           <AssociationSet Name="FK_Живут" Association="Self.FK_Живут">
-            <End Role="Адреса" EntitySet="Адреса" />
-            <End Role="Пациенты" EntitySet="Пациенты" />
+            <End EntitySet="Адреса" Role="Адреса" />
+            <End EntitySet="Пациенты" Role="Пациенты" />
           </AssociationSet>
           <AssociationSet Name="FK_К_кому_направляется" Association="Self.FK_К_кому_направляется">
-            <End Role="Врачи" EntitySet="Врачи" />
-            <End Role="Направление" EntitySet="Направление" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Назначены" Association="Self.FK_Назначены">
-            <End Role="Врачи" EntitySet="Врачи" />
-            <End Role="Участки" EntitySet="Участки" />
+            <End EntitySet="Врачи" Role="Врачи" />
+            <End EntitySet="Направление" Role="Направление" />
           </AssociationSet>
           <AssociationSet Name="FK_Направление_Пациенты" Association="Self.FK_Направление_Пациенты">
-            <End Role="Пациенты" EntitySet="Пациенты" />
-            <End Role="Направление" EntitySet="Направление" />
+            <End EntitySet="Пациенты" Role="Пациенты" />
+            <End EntitySet="Направление" Role="Направление" />
           </AssociationSet>
           <AssociationSet Name="FK_Направляет" Association="Self.FK_Направляет">
-            <End Role="Направление" EntitySet="Направление" />
-            <End Role="Прием" EntitySet="Прием" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Относятся_к" Association="Self.FK_Относятся_к">
-            <End Role="Специальности" EntitySet="Специальности" />
-            <End Role="Процедуры" EntitySet="Процедуры" />
+            <End EntitySet="Направление" Role="Направление" />
+            <End EntitySet="Прием" Role="Прием" />
           </AssociationSet>
           <AssociationSet Name="FK_Посещают" Association="Self.FK_Посещают">
-            <End Role="Пациенты" EntitySet="Пациенты" />
-            <End Role="Прием" EntitySet="Прием" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Процедуры_в_приеме_Прием" Association="Self.FK_Процедуры_в_приеме_Прием">
-            <End Role="Прием" EntitySet="Прием" />
-            <End Role="Процедуры_в_приеме" EntitySet="Процедуры_в_приеме" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Процедуры_в_приеме_Процедуры" Association="Self.FK_Процедуры_в_приеме_Процедуры">
-            <End Role="Процедуры" EntitySet="Процедуры" />
-            <End Role="Процедуры_в_приеме" EntitySet="Процедуры_в_приеме" />
+            <End EntitySet="Пациенты" Role="Пациенты" />
+            <End EntitySet="Прием" Role="Прием" />
           </AssociationSet>
           <AssociationSet Name="FK_Работают_по_времени" Association="Self.FK_Работают_по_времени">
-            <End Role="Врачи" EntitySet="Врачи" />
-            <End Role="Расписание" EntitySet="Расписание" />
+            <End EntitySet="Врачи" Role="Врачи" />
+            <End EntitySet="Расписание" Role="Расписание" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -582,14 +452,12 @@
           <EntitySet Name="Пациенты" EntityType="ClinicModel.Пациенты" />
           <EntitySet Name="Пользователи" EntityType="ClinicModel.Пользователи" />
           <EntitySet Name="Прием" EntityType="ClinicModel.Прием" />
-          <EntitySet Name="Процедуры" EntityType="ClinicModel.Процедуры" />
           <EntitySet Name="Расписание" EntityType="ClinicModel.Расписание" />
           <EntitySet Name="Расписание_врачей" EntityType="ClinicModel.Расписание_врачей" />
           <EntitySet Name="Сотрудники" EntityType="ClinicModel.Сотрудники" />
           <EntitySet Name="Специальности" EntityType="ClinicModel.Специальности" />
           <EntitySet Name="Список_врачей1Set" EntityType="ClinicModel.Список_врачей1" />
           <EntitySet Name="Таблица_участков" EntityType="ClinicModel.Таблица_участков" />
-          <EntitySet Name="Участки" EntityType="ClinicModel.Участки" />
           <AssociationSet Name="FK_Живут" Association="ClinicModel.FK_Живут">
             <End Role="Адреса" EntitySet="Адреса" />
             <End Role="Пациенты" EntitySet="Пациенты" />
@@ -614,10 +482,6 @@
             <End Role="Врачи" EntitySet="Врачи" />
             <End Role="Направление" EntitySet="Направление" />
           </AssociationSet>
-          <AssociationSet Name="FK_Назначены" Association="ClinicModel.FK_Назначены">
-            <End Role="Врачи" EntitySet="Врачи" />
-            <End Role="Участки" EntitySet="Участки" />
-          </AssociationSet>
           <AssociationSet Name="FK_Работают_по_времени" Association="ClinicModel.FK_Работают_по_времени">
             <End Role="Врачи" EntitySet="Врачи" />
             <End Role="Расписание" EntitySet="Расписание" />
@@ -638,21 +502,9 @@
             <End Role="Пациенты" EntitySet="Пациенты" />
             <End Role="Прием" EntitySet="Прием" />
           </AssociationSet>
-          <AssociationSet Name="FK_Относятся_к" Association="ClinicModel.FK_Относятся_к">
-            <End Role="Специальности" EntitySet="Специальности" />
-            <End Role="Процедуры" EntitySet="Процедуры" />
-          </AssociationSet>
           <AssociationSet Name="webpages_UsersInRoles" Association="ClinicModel.webpages_UsersInRoles">
             <End Role="UserProfile" EntitySet="UserProfile" />
             <End Role="webpages_Roles" EntitySet="webpages_Roles" />
-          </AssociationSet>
-          <AssociationSet Name="Адреса_в_участках" Association="ClinicModel.Адреса_в_участках">
-            <End Role="Адреса" EntitySet="Адреса" />
-            <End Role="Участки" EntitySet="Участки" />
-          </AssociationSet>
-          <AssociationSet Name="Процедуры_в_приеме" Association="ClinicModel.Процедуры_в_приеме">
-            <End Role="Прием" EntitySet="Прием" />
-            <End Role="Процедуры" EntitySet="Процедуры" />
           </AssociationSet>
           <FunctionImport Name="Refresh_pers" />
         </EntityContainer>
@@ -715,7 +567,6 @@
           <Property Name="Улица" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Дом" Type="Double" Nullable="false" />
           <NavigationProperty Name="Пациенты" Relationship="ClinicModel.FK_Живут" FromRole="Адреса" ToRole="Пациенты" />
-          <NavigationProperty Name="Участки" Relationship="ClinicModel.Адреса_в_участках" FromRole="Адреса" ToRole="Участки" />
         </EntityType>
         <EntityType Name="Врачи">
           <Key>
@@ -729,7 +580,6 @@
           <NavigationProperty Name="Сотрудники" Relationship="ClinicModel.FK_ВС" FromRole="Врачи" ToRole="Сотрудники" />
           <NavigationProperty Name="Направление" Relationship="ClinicModel.FK_Выдают" FromRole="Врачи" ToRole="Направление" />
           <NavigationProperty Name="Направление1" Relationship="ClinicModel.FK_К_кому_направляется" FromRole="Врачи" ToRole="Направление" />
-          <NavigationProperty Name="Участки" Relationship="ClinicModel.FK_Назначены" FromRole="Врачи" ToRole="Участки" />
           <NavigationProperty Name="Расписание" Relationship="ClinicModel.FK_Работают_по_времени" FromRole="Врачи" ToRole="Расписание" />
         </EntityType>
         <EntityType Name="Дни_недели">
@@ -777,6 +627,7 @@
           <Property Name="login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Прием">
           <Key>
@@ -794,17 +645,6 @@
           <NavigationProperty Name="Врачи" Relationship="ClinicModel.FK_Ведут" FromRole="Прием" ToRole="Врачи" />
           <NavigationProperty Name="Направление" Relationship="ClinicModel.FK_Направляет" FromRole="Прием" ToRole="Направление" />
           <NavigationProperty Name="Пациенты" Relationship="ClinicModel.FK_Посещают" FromRole="Прием" ToRole="Пациенты" />
-          <NavigationProperty Name="Процедуры" Relationship="ClinicModel.Процедуры_в_приеме" FromRole="Прием" ToRole="Процедуры" />
-        </EntityType>
-        <EntityType Name="Процедуры">
-          <Key>
-            <PropertyRef Name="Код_процедуры" />
-          </Key>
-          <Property Name="Код_процедуры" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Наименование" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Код_специальности" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Специальности" Relationship="ClinicModel.FK_Относятся_к" FromRole="Процедуры" ToRole="Специальности" />
-          <NavigationProperty Name="Прием" Relationship="ClinicModel.Процедуры_в_приеме" FromRole="Процедуры" ToRole="Прием" />
         </EntityType>
         <EntityType Name="Расписание">
           <Key>
@@ -859,7 +699,6 @@
           <Property Name="Код_специальности" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Наименование" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Врачи" Relationship="ClinicModel.FK_Владеют" FromRole="Специальности" ToRole="Врачи" />
-          <NavigationProperty Name="Процедуры" Relationship="ClinicModel.FK_Относятся_к" FromRole="Специальности" ToRole="Процедуры" />
         </EntityType>
         <EntityType Name="Список_врачей1">
           <Key>
@@ -884,15 +723,6 @@
           <Property Name="C__участка" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ФИО_врача" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="Адрес" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="Участки">
-          <Key>
-            <PropertyRef Name="C_участка" />
-          </Key>
-          <Property Name="C_участка" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_врача" Type="Guid" Nullable="false" />
-          <NavigationProperty Name="Врачи" Relationship="ClinicModel.FK_Назначены" FromRole="Участки" ToRole="Врачи" />
-          <NavigationProperty Name="Адреса" Relationship="ClinicModel.Адреса_в_участках" FromRole="Участки" ToRole="Адреса" />
         </EntityType>
         <Association Name="FK_Живут">
           <End Type="ClinicModel.Адреса" Role="Адреса" Multiplicity="1" />
@@ -966,18 +796,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Назначены">
-          <End Type="ClinicModel.Врачи" Role="Врачи" Multiplicity="1" />
-          <End Type="ClinicModel.Участки" Role="Участки" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Врачи">
-              <PropertyRef Name="ID_врача" />
-            </Principal>
-            <Dependent Role="Участки">
-              <PropertyRef Name="ID_врача" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Работают_по_времени">
           <End Type="ClinicModel.Врачи" Role="Врачи" Multiplicity="1" />
           <End Type="ClinicModel.Расписание" Role="Расписание" Multiplicity="*" />
@@ -1038,36 +856,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Относятся_к">
-          <End Type="ClinicModel.Специальности" Role="Специальности" Multiplicity="1" />
-          <End Type="ClinicModel.Процедуры" Role="Процедуры" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Специальности">
-              <PropertyRef Name="Код_специальности" />
-            </Principal>
-            <Dependent Role="Процедуры">
-              <PropertyRef Name="Код_специальности" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="webpages_UsersInRoles">
           <End Type="ClinicModel.UserProfile" Role="UserProfile" Multiplicity="*" />
           <End Type="ClinicModel.webpages_Roles" Role="webpages_Roles" Multiplicity="*" />
-        </Association>
-        <Association Name="Адреса_в_участках">
-          <End Type="ClinicModel.Адреса" Role="Адреса" Multiplicity="*" />
-          <End Type="ClinicModel.Участки" Role="Участки" Multiplicity="*" />
-        </Association>
-        <Association Name="Процедуры_в_приеме">
-          <End Type="ClinicModel.Прием" Role="Прием" Multiplicity="*" />
-          <End Type="ClinicModel.Процедуры" Role="Процедуры" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ClinicModelContainer" CdmEntityContainer="ClinicEntities">
+        <EntityContainerMapping CdmEntityContainer="ClinicEntities" StorageEntityContainer="Хранилище ClinicModelContainer">
         <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="ClinicModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -1174,6 +972,7 @@
           <EntitySetMapping Name="Пользователи">
             <EntityTypeMapping TypeName="ClinicModel.Пользователи">
               <MappingFragment StoreEntitySet="Пользователи">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="role" ColumnName="role" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="login" ColumnName="login" />
@@ -1193,15 +992,6 @@
                 <ScalarProperty Name="Длительность" ColumnName="Длительность" />
                 <ScalarProperty Name="Дата" ColumnName="Дата" />
                 <ScalarProperty Name="ID_приема" ColumnName="ID приема" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Процедуры">
-            <EntityTypeMapping TypeName="ClinicModel.Процедуры">
-              <MappingFragment StoreEntitySet="Процедуры">
-                <ScalarProperty Name="Код_специальности" ColumnName="Код специальности" />
-                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
-                <ScalarProperty Name="Код_процедуры" ColumnName="Код процедуры" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1275,36 +1065,12 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Участки">
-            <EntityTypeMapping TypeName="ClinicModel.Участки">
-              <MappingFragment StoreEntitySet="Участки">
-                <ScalarProperty Name="ID_врача" ColumnName="ID врача" />
-                <ScalarProperty Name="C_участка" ColumnName="C участка" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="ClinicModel.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
             <EndProperty Name="webpages_Roles">
               <ScalarProperty Name="RoleId" ColumnName="webpages_Roles_RoleId" />
             </EndProperty>
             <EndProperty Name="UserProfile">
               <ScalarProperty Name="UserId" ColumnName="UserProfile_UserId" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="Адреса_в_участках" TypeName="ClinicModel.Адреса_в_участках" StoreEntitySet="Адреса_в_участках">
-            <EndProperty Name="Участки">
-              <ScalarProperty Name="C_участка" ColumnName="Участки C  участка" />
-            </EndProperty>
-            <EndProperty Name="Адреса">
-              <ScalarProperty Name="Код_адреса" ColumnName="Адреса Код адреса" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="Процедуры_в_приеме" TypeName="ClinicModel.Процедуры_в_приеме" StoreEntitySet="Процедуры_в_приеме">
-            <EndProperty Name="Процедуры">
-              <ScalarProperty Name="Код_процедуры" ColumnName="Процедуры_Код_процедуры" />
-            </EndProperty>
-            <EndProperty Name="Прием">
-              <ScalarProperty Name="ID_приема" ColumnName="Прием_ID_приема" />
             </EndProperty>
           </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="Refresh_pers" FunctionName="Хранилище ClinicModel.Refresh_pers" />

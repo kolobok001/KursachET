@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище ClinicModelContainer" CdmEntityContainer="ClinicEntities">
+  <EntityContainerMapping CdmEntityContainer="ClinicEntities" StorageEntityContainer="Хранилище ClinicModelContainer">
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="ClinicModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
@@ -107,6 +107,7 @@
     <EntitySetMapping Name="Пользователи">
       <EntityTypeMapping TypeName="ClinicModel.Пользователи">
         <MappingFragment StoreEntitySet="Пользователи">
+          <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="role" ColumnName="role" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="login" ColumnName="login" />
@@ -126,15 +127,6 @@
           <ScalarProperty Name="Длительность" ColumnName="Длительность" />
           <ScalarProperty Name="Дата" ColumnName="Дата" />
           <ScalarProperty Name="ID_приема" ColumnName="ID приема" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Процедуры">
-      <EntityTypeMapping TypeName="ClinicModel.Процедуры">
-        <MappingFragment StoreEntitySet="Процедуры">
-          <ScalarProperty Name="Код_специальности" ColumnName="Код специальности" />
-          <ScalarProperty Name="Наименование" ColumnName="Наименование" />
-          <ScalarProperty Name="Код_процедуры" ColumnName="Код процедуры" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -208,36 +200,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Участки">
-      <EntityTypeMapping TypeName="ClinicModel.Участки">
-        <MappingFragment StoreEntitySet="Участки">
-          <ScalarProperty Name="ID_врача" ColumnName="ID врача" />
-          <ScalarProperty Name="C_участка" ColumnName="C участка" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="ClinicModel.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
       <EndProperty Name="webpages_Roles">
         <ScalarProperty Name="RoleId" ColumnName="webpages_Roles_RoleId" />
       </EndProperty>
       <EndProperty Name="UserProfile">
         <ScalarProperty Name="UserId" ColumnName="UserProfile_UserId" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="Адреса_в_участках" TypeName="ClinicModel.Адреса_в_участках" StoreEntitySet="Адреса_в_участках">
-      <EndProperty Name="Участки">
-        <ScalarProperty Name="C_участка" ColumnName="Участки C  участка" />
-      </EndProperty>
-      <EndProperty Name="Адреса">
-        <ScalarProperty Name="Код_адреса" ColumnName="Адреса Код адреса" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="Процедуры_в_приеме" TypeName="ClinicModel.Процедуры_в_приеме" StoreEntitySet="Процедуры_в_приеме">
-      <EndProperty Name="Процедуры">
-        <ScalarProperty Name="Код_процедуры" ColumnName="Процедуры_Код_процедуры" />
-      </EndProperty>
-      <EndProperty Name="Прием">
-        <ScalarProperty Name="ID_приема" ColumnName="Прием_ID_приема" />
       </EndProperty>
     </AssociationSetMapping>
     <FunctionImportMapping FunctionImportName="Refresh_pers" FunctionName="Хранилище ClinicModel.Refresh_pers" />

@@ -40,14 +40,12 @@ namespace CourseWorkClinic.App_Data
         public DbSet<Пациенты> Пациенты { get; set; }
         public DbSet<Пользователи> Пользователи { get; set; }
         public DbSet<Прием> Прием { get; set; }
-        public DbSet<Процедуры> Процедуры { get; set; }
         public DbSet<Расписание> Расписание { get; set; }
         public DbSet<Расписание_врачей> Расписание_врачей { get; set; }
         public DbSet<Сотрудники> Сотрудники { get; set; }
         public DbSet<Специальности> Специальности { get; set; }
         public DbSet<Список_врачей1> Список_врачей1Set { get; set; }
         public DbSet<Таблица_участков> Таблица_участков { get; set; }
-        public DbSet<Участки> Участки { get; set; }
     
         public virtual int Refresh_pers()
         {

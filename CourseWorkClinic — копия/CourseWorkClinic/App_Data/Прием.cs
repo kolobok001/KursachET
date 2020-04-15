@@ -14,11 +14,6 @@ namespace CourseWorkClinic.App_Data
     
     public partial class Прием
     {
-        public Прием()
-        {
-            this.Процедуры = new HashSet<Процедуры>();
-        }
-    
         public System.Guid ID_приема { get; set; }
         public System.DateTime Дата { get; set; }
         public Nullable<double> Длительность { get; set; }
@@ -32,6 +27,5 @@ namespace CourseWorkClinic.App_Data
         public virtual Врачи Врачи { get; set; }
         public virtual Направление Направление { get; set; }
         public virtual Пациенты Пациенты { get; set; }
-        public virtual ICollection<Процедуры> Процедуры { get; set; }
     }
 }

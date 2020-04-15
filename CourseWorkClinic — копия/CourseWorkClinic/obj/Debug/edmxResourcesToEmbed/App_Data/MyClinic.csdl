@@ -13,14 +13,12 @@
     <EntitySet Name="Пациенты" EntityType="ClinicModel.Пациенты" />
     <EntitySet Name="Пользователи" EntityType="ClinicModel.Пользователи" />
     <EntitySet Name="Прием" EntityType="ClinicModel.Прием" />
-    <EntitySet Name="Процедуры" EntityType="ClinicModel.Процедуры" />
     <EntitySet Name="Расписание" EntityType="ClinicModel.Расписание" />
     <EntitySet Name="Расписание_врачей" EntityType="ClinicModel.Расписание_врачей" />
     <EntitySet Name="Сотрудники" EntityType="ClinicModel.Сотрудники" />
     <EntitySet Name="Специальности" EntityType="ClinicModel.Специальности" />
     <EntitySet Name="Список_врачей1Set" EntityType="ClinicModel.Список_врачей1" />
     <EntitySet Name="Таблица_участков" EntityType="ClinicModel.Таблица_участков" />
-    <EntitySet Name="Участки" EntityType="ClinicModel.Участки" />
     <AssociationSet Name="FK_Живут" Association="ClinicModel.FK_Живут">
       <End Role="Адреса" EntitySet="Адреса" />
       <End Role="Пациенты" EntitySet="Пациенты" />
@@ -45,10 +43,6 @@
       <End Role="Врачи" EntitySet="Врачи" />
       <End Role="Направление" EntitySet="Направление" />
     </AssociationSet>
-    <AssociationSet Name="FK_Назначены" Association="ClinicModel.FK_Назначены">
-      <End Role="Врачи" EntitySet="Врачи" />
-      <End Role="Участки" EntitySet="Участки" />
-    </AssociationSet>
     <AssociationSet Name="FK_Работают_по_времени" Association="ClinicModel.FK_Работают_по_времени">
       <End Role="Врачи" EntitySet="Врачи" />
       <End Role="Расписание" EntitySet="Расписание" />
@@ -69,21 +63,9 @@
       <End Role="Пациенты" EntitySet="Пациенты" />
       <End Role="Прием" EntitySet="Прием" />
     </AssociationSet>
-    <AssociationSet Name="FK_Относятся_к" Association="ClinicModel.FK_Относятся_к">
-      <End Role="Специальности" EntitySet="Специальности" />
-      <End Role="Процедуры" EntitySet="Процедуры" />
-    </AssociationSet>
     <AssociationSet Name="webpages_UsersInRoles" Association="ClinicModel.webpages_UsersInRoles">
       <End Role="UserProfile" EntitySet="UserProfile" />
       <End Role="webpages_Roles" EntitySet="webpages_Roles" />
-    </AssociationSet>
-    <AssociationSet Name="Адреса_в_участках" Association="ClinicModel.Адреса_в_участках">
-      <End Role="Адреса" EntitySet="Адреса" />
-      <End Role="Участки" EntitySet="Участки" />
-    </AssociationSet>
-    <AssociationSet Name="Процедуры_в_приеме" Association="ClinicModel.Процедуры_в_приеме">
-      <End Role="Прием" EntitySet="Прием" />
-      <End Role="Процедуры" EntitySet="Процедуры" />
     </AssociationSet>
     <FunctionImport Name="Refresh_pers" />
   </EntityContainer>
@@ -146,7 +128,6 @@
     <Property Name="Улица" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Дом" Type="Double" Nullable="false" />
     <NavigationProperty Name="Пациенты" Relationship="ClinicModel.FK_Живут" FromRole="Адреса" ToRole="Пациенты" />
-    <NavigationProperty Name="Участки" Relationship="ClinicModel.Адреса_в_участках" FromRole="Адреса" ToRole="Участки" />
   </EntityType>
   <EntityType Name="Врачи">
     <Key>
@@ -160,7 +141,6 @@
     <NavigationProperty Name="Сотрудники" Relationship="ClinicModel.FK_ВС" FromRole="Врачи" ToRole="Сотрудники" />
     <NavigationProperty Name="Направление" Relationship="ClinicModel.FK_Выдают" FromRole="Врачи" ToRole="Направление" />
     <NavigationProperty Name="Направление1" Relationship="ClinicModel.FK_К_кому_направляется" FromRole="Врачи" ToRole="Направление" />
-    <NavigationProperty Name="Участки" Relationship="ClinicModel.FK_Назначены" FromRole="Врачи" ToRole="Участки" />
     <NavigationProperty Name="Расписание" Relationship="ClinicModel.FK_Работают_по_времени" FromRole="Врачи" ToRole="Расписание" />
   </EntityType>
   <EntityType Name="Дни_недели">
@@ -208,6 +188,7 @@
     <Property Name="login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Прием">
     <Key>
@@ -225,17 +206,6 @@
     <NavigationProperty Name="Врачи" Relationship="ClinicModel.FK_Ведут" FromRole="Прием" ToRole="Врачи" />
     <NavigationProperty Name="Направление" Relationship="ClinicModel.FK_Направляет" FromRole="Прием" ToRole="Направление" />
     <NavigationProperty Name="Пациенты" Relationship="ClinicModel.FK_Посещают" FromRole="Прием" ToRole="Пациенты" />
-    <NavigationProperty Name="Процедуры" Relationship="ClinicModel.Процедуры_в_приеме" FromRole="Прием" ToRole="Процедуры" />
-  </EntityType>
-  <EntityType Name="Процедуры">
-    <Key>
-      <PropertyRef Name="Код_процедуры" />
-    </Key>
-    <Property Name="Код_процедуры" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Наименование" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Код_специальности" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Специальности" Relationship="ClinicModel.FK_Относятся_к" FromRole="Процедуры" ToRole="Специальности" />
-    <NavigationProperty Name="Прием" Relationship="ClinicModel.Процедуры_в_приеме" FromRole="Процедуры" ToRole="Прием" />
   </EntityType>
   <EntityType Name="Расписание">
     <Key>
@@ -290,7 +260,6 @@
     <Property Name="Код_специальности" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Наименование" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Врачи" Relationship="ClinicModel.FK_Владеют" FromRole="Специальности" ToRole="Врачи" />
-    <NavigationProperty Name="Процедуры" Relationship="ClinicModel.FK_Относятся_к" FromRole="Специальности" ToRole="Процедуры" />
   </EntityType>
   <EntityType Name="Список_врачей1">
     <Key>
@@ -315,15 +284,6 @@
     <Property Name="C__участка" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ФИО_врача" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
     <Property Name="Адрес" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="Участки">
-    <Key>
-      <PropertyRef Name="C_участка" />
-    </Key>
-    <Property Name="C_участка" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ID_врача" Type="Guid" Nullable="false" />
-    <NavigationProperty Name="Врачи" Relationship="ClinicModel.FK_Назначены" FromRole="Участки" ToRole="Врачи" />
-    <NavigationProperty Name="Адреса" Relationship="ClinicModel.Адреса_в_участках" FromRole="Участки" ToRole="Адреса" />
   </EntityType>
   <Association Name="FK_Живут">
     <End Type="ClinicModel.Адреса" Role="Адреса" Multiplicity="1" />
@@ -397,18 +357,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Назначены">
-    <End Type="ClinicModel.Врачи" Role="Врачи" Multiplicity="1" />
-    <End Type="ClinicModel.Участки" Role="Участки" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Врачи">
-        <PropertyRef Name="ID_врача" />
-      </Principal>
-      <Dependent Role="Участки">
-        <PropertyRef Name="ID_врача" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Работают_по_времени">
     <End Type="ClinicModel.Врачи" Role="Врачи" Multiplicity="1" />
     <End Type="ClinicModel.Расписание" Role="Расписание" Multiplicity="*" />
@@ -469,28 +417,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Относятся_к">
-    <End Type="ClinicModel.Специальности" Role="Специальности" Multiplicity="1" />
-    <End Type="ClinicModel.Процедуры" Role="Процедуры" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Специальности">
-        <PropertyRef Name="Код_специальности" />
-      </Principal>
-      <Dependent Role="Процедуры">
-        <PropertyRef Name="Код_специальности" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="webpages_UsersInRoles">
     <End Type="ClinicModel.UserProfile" Role="UserProfile" Multiplicity="*" />
     <End Type="ClinicModel.webpages_Roles" Role="webpages_Roles" Multiplicity="*" />
-  </Association>
-  <Association Name="Адреса_в_участках">
-    <End Type="ClinicModel.Адреса" Role="Адреса" Multiplicity="*" />
-    <End Type="ClinicModel.Участки" Role="Участки" Multiplicity="*" />
-  </Association>
-  <Association Name="Процедуры_в_приеме">
-    <End Type="ClinicModel.Прием" Role="Прием" Multiplicity="*" />
-    <End Type="ClinicModel.Процедуры" Role="Процедуры" Multiplicity="*" />
   </Association>
 </Schema>

@@ -17,13 +17,11 @@ namespace CourseWorkClinic.App_Data
         public Специальности()
         {
             this.Врачи = new HashSet<Врачи>();
-            this.Процедуры = new HashSet<Процедуры>();
         }
     
         public int Код_специальности { get; set; }
         public string Наименование { get; set; }
     
         public virtual ICollection<Врачи> Врачи { get; set; }
-        public virtual ICollection<Процедуры> Процедуры { get; set; }
     }
 }

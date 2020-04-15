@@ -214,9 +214,6 @@
     <Compile Include="App_Data\Прием.cs">
       <DependentUpon>MyClinic.tt</DependentUpon>
     </Compile>
-    <Compile Include="App_Data\Процедуры.cs">
-      <DependentUpon>MyClinic.tt</DependentUpon>
-    </Compile>
     <Compile Include="App_Data\Расписание.cs">
       <DependentUpon>MyClinic.tt</DependentUpon>
     </Compile>
@@ -232,11 +229,9 @@
     <Compile Include="App_Data\Таблица_участков.cs">
       <DependentUpon>MyClinic.tt</DependentUpon>
     </Compile>
-    <Compile Include="App_Data\Участки.cs">
-      <DependentUpon>MyClinic.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\MyClinic.edmx.sql" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />

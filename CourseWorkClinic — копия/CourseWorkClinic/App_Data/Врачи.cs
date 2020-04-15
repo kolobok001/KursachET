@@ -19,7 +19,6 @@ namespace CourseWorkClinic.App_Data
             this.Прием = new HashSet<Прием>();
             this.Направление = new HashSet<Направление>();
             this.Направление1 = new HashSet<Направление>();
-            this.Участки = new HashSet<Участки>();
             this.Расписание = new HashSet<Расписание>();
         }
     
@@ -32,7 +31,6 @@ namespace CourseWorkClinic.App_Data
         public virtual Сотрудники Сотрудники { get; set; }
         public virtual ICollection<Направление> Направление { get; set; }
         public virtual ICollection<Направление> Направление1 { get; set; }
-        public virtual ICollection<Участки> Участки { get; set; }
         public virtual ICollection<Расписание> Расписание { get; set; }
     }
 }

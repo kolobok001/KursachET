@@ -368,24 +368,65 @@ namespace CourseWorkClinic.Controllers
             }
             return View();
         }
-
+        [HttpPost]
         public ActionResult AddUser()
         {
             using (ClinicEntities entities = new ClinicEntities())
             {
+
                 Пользователи newUser = new Пользователи();
                 newUser.ID_пользователя = Guid.NewGuid();
                 newUser.login = Request["Login"];
                 newUser.password = Request["Password"];
                 newUser.role = Request["Role"];
 
+               
+                        newUser.Image = "default.jpg";
+                    
+
+                
                 entities.Пользователи.Add(newUser);
                 entities.SaveChanges();
+
             }
+
+
+
             return View();
+        }
+        [HttpPost]
+        public JsonResult Upload()
+        {
+            using (ClinicEntities entities = new ClinicEntities())
+            {
+                foreach (string file in Request.Files)
+            {
+                var upload = Request.Files[file];
+                if (upload != null)
+                {
+                    Guid pId = Guid.Parse(file);
+                    Пользователи myP = entities.Пользователи.Find(pId);
+                    // получаем имя файла
+                    string fileName = Guid.NewGuid().ToString()+".jpg";
+                    // сохраняем файл в папку Files в проекте
+                    upload.SaveAs(Server.MapPath("~/Files/" + fileName));
+                    myP.Image = fileName;
+                    entities.Entry(myP).State = EntityState.Modified;
+                    entities.SaveChanges();
+                }
+            }
+            
+                
+                
+
+               
+
+                
+            }
+            return Json("файл загружен");
         }
 
 
-    
+
     }
 }

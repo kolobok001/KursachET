@@ -17,7 +17,6 @@ namespace CourseWorkClinic.App_Data
         public Адреса()
         {
             this.Пациенты = new HashSet<Пациенты>();
-            this.Участки = new HashSet<Участки>();
         }
     
         public int Код_адреса { get; set; }
@@ -25,6 +24,5 @@ namespace CourseWorkClinic.App_Data
         public double Дом { get; set; }
     
         public virtual ICollection<Пациенты> Пациенты { get; set; }
-        public virtual ICollection<Участки> Участки { get; set; }
     }
 }
