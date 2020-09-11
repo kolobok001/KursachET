@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "D:\ВУЗ\IT\Kursach\KursachET\CourseWorkClinic — копия\CourseWorkClinic\App_Data\MyClinic.edmx" включено. 
+﻿// Создание кода T4 для модели "D:\ВУЗ\KursachET-master\CourseWorkClinic — копия\CourseWorkClinic\App_Data\MyClinic.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

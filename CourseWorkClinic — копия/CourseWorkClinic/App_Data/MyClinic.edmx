@@ -654,7 +654,7 @@
           <Property Name="Неделя" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="Время_начала" Type="Time" Nullable="false" Precision="7" />
           <Property Name="Время_окончания" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="C__кабинета" Type="Int32" Nullable="false" />
+          <Property Name="C__кабинета" Nullable="false" Type="Int32" />
           <Property Name="ID_врача" Type="Guid" Nullable="false" />
           <Property Name="Код_дня" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Врачи" Relationship="ClinicModel.FK_Работают_по_времени" FromRole="Расписание" ToRole="Врачи" />
