@@ -29,7 +29,7 @@ namespace CourseWorkClinic.Controllers
 
         public ActionResult UserControl()
         {
-            if ((Request.IsAuthenticated) && (System.Web.HttpContext.Current.User.IsInRole("админ")))
+            if (Request?.IsAuthenticated ?? false && System.Web.HttpContext.Current.User.IsInRole("админ"))
             {
                 using (ClinicEntities entities = new ClinicEntities())
             {

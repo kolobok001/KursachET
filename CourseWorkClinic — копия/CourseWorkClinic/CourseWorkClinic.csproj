@@ -305,7 +305,6 @@
       <DependentUpon>MyClinic.edmx</DependentUpon>
       <LastGenOutput>MyClinic.cs</LastGenOutput>
     </Content>
-    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\23.png" />
     <Content Include="Images\9115v.jpg" />

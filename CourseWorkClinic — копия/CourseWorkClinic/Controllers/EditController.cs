@@ -222,7 +222,7 @@ namespace CourseWorkClinic.Controllers
 
         public ActionResult EditRecept(Guid id)
         {
-            using (CourseWorkClinic.App_Data.ClinicEntities entities = new App_Data.ClinicEntities())
+            using (ClinicEntities entities = new ClinicEntities())
             {
                 Прием model = entities.Прием.Where(a => a.ID_приема == id).First();
                 return View(model);
@@ -244,7 +244,7 @@ namespace CourseWorkClinic.Controllers
 
 
 
-    public ActionResult EditPatient()
+        public ActionResult EditPatient()
         {
             using (ClinicEntities entities = new ClinicEntities())
             {
@@ -266,7 +266,7 @@ namespace CourseWorkClinic.Controllers
                     myP.Дата_смерти = null;
                 }
                 else myP.Дата_смерти = Convert.ToDateTime(Request["DeathDate"]);
-                
+
                 myP.Код_адреса = Convert.ToInt32(Request["AdressList"]);
 
                 entities.Entry(myP).State = EntityState.Modified;
@@ -323,8 +323,8 @@ namespace CourseWorkClinic.Controllers
                 newStaff.Фамилия = Request["Surname"];
                 newStaff.Имя = Request["Firstname"];
                 newStaff.Отчество = Request["Patronymic"];
-                 
-               
+
+
                 newVrach.Код_специальности = Convert.ToInt16(Request["Speciality"]);
 
                 entities.Сотрудники.Add(newStaff);
@@ -358,8 +358,8 @@ namespace CourseWorkClinic.Controllers
             {
                 Guid pId = Guid.Parse(Request["UserId"]);
                 Пользователи myP = entities.Пользователи.Find(pId);
-                
-                myP.login = Request["Login"];;
+
+                myP.login = Request["Login"]; ;
                 myP.password = Request["Password"];
                 myP.role = Request["Role"];
 
@@ -379,12 +379,7 @@ namespace CourseWorkClinic.Controllers
                 newUser.login = Request["Login"];
                 newUser.password = Request["Password"];
                 newUser.role = Request["Role"];
-
-               
-                        newUser.Image = "default.jpg";
-                    
-
-                
+                newUser.Image = "default.jpg";
                 entities.Пользователи.Add(newUser);
                 entities.SaveChanges();
 
@@ -400,28 +395,22 @@ namespace CourseWorkClinic.Controllers
             using (ClinicEntities entities = new ClinicEntities())
             {
                 foreach (string file in Request.Files)
-            {
-                var upload = Request.Files[file];
-                if (upload != null)
                 {
-                    Guid pId = Guid.Parse(file);
-                    Пользователи myP = entities.Пользователи.Find(pId);
-                    // получаем имя файла
-                    string fileName = Guid.NewGuid().ToString()+".jpg";
-                    // сохраняем файл в папку Files в проекте
-                    upload.SaveAs(Server.MapPath("~/Files/" + fileName));
-                    myP.Image = fileName;
-                    entities.Entry(myP).State = EntityState.Modified;
-                    entities.SaveChanges();
+                    var upload = Request.Files[file];
+                    if (upload != null)
+                    {
+                        Guid pId = Guid.Parse(file);
+                        Пользователи myP = entities.Пользователи.Find(pId);
+                        // получаем имя файла
+                        string fileName = Guid.NewGuid().ToString() + ".jpg";
+                        // сохраняем файл в папку Files в проекте
+                        upload.SaveAs(Server.MapPath("~/Files/" + fileName));
+                        myP.Image = fileName;
+                        entities.Entry(myP).State = EntityState.Modified;
+                        entities.SaveChanges();
+                    }
                 }
-            }
-            
-                
-                
 
-               
-
-                
             }
             return Json("файл загружен");
         }
