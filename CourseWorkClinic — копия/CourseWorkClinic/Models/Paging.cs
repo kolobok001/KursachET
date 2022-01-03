@@ -34,12 +34,12 @@ namespace CourseWorkClinic.Models
         }
         public static string GetFioPacient(Пациенты item)
         {
-            string s = item.Фамилия + " " + item.Отчество+" "+ item.Отчество;
+            string s = item.Фамилия + " " + item.Имя + " "+ item.Отчество;
             return s;
         }
         public static string GetFioDoctor(CourseWorkClinic.Models.DoctorList item)
         {
-            string s = item.Фамилия + " " + item.Отчество + " " + item.Отчество;
+            string s = item.Фамилия + " " + item.Имя + " " + item.Отчество;
             return s;
         }
     }

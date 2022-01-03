@@ -55,7 +55,7 @@ namespace CourseWorkClinic.Controllers
                         }
                         else
                         {
-                            ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                            ModelState.AddModelError("", "Логин или пароль неверны, попробуйте еще раз");
                         }
                     }
                 }

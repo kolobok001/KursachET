@@ -433,6 +433,5 @@ D:\Андрей\Разное\Проекты\KursachET-master\KursachET\CourseWor
 D:\Андрей\Разное\Проекты\KursachET-master\KursachET\CourseWorkClinic — копия\CourseWorkClinic\bin\ru\System.Web.WebPages.Razor.resources.dll
 D:\Андрей\Разное\Проекты\KursachET-master\KursachET\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.csproj.AssemblyReference.cache
 D:\Андрей\Разное\Проекты\KursachET-master\KursachET\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.csproj.CoreCompileInputs.cache
-D:\Андрей\Разное\Проекты\KursachET-master\KursachET\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.csproj.CopyComplete
 D:\Андрей\Разное\Проекты\KursachET-master\KursachET\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.dll
 D:\Андрей\Разное\Проекты\KursachET-master\KursachET\CourseWorkClinic — копия\CourseWorkClinic\obj\Debug\CourseWorkClinic.pdb

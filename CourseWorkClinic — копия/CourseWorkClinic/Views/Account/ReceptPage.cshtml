@@ -9,7 +9,7 @@
 <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
 <script>
     $(function () {
-        
+
 
         $('.delete-patient').on('click', function () {
             if (confirm("Вы уверены, что хотите удалить эту запись?")) {
@@ -24,6 +24,9 @@
                         console.log('server error');
                     });
             }
+        });
+        $('.edit-patient').on('click', function (e) {
+            window.location = `/Edit/EditRecept?id=${e.target.id}`
         });
     })
 </script>
@@ -41,7 +44,7 @@
         <div class="search-col">
             <input type="date" name="dateSearch" id="autocomplete-ajax" class="form-control has-icon" placeholder="Дата приема" value="" autocomplete="off">
             <input type="text" name="surnameSearch" class="form-control has-icon" placeholder="Фамилия врача" value="">
-            <button type="submit" class="btn btn-primary btn-search btn-block"><i class="icon-search"></i><strong>Find</strong></button>
+            <button type="submit" class="btn btn-primary btn-search btn-block"><i class="icon-search"></i><strong>Поиск</strong></button>
         </div>
     </div>
 }
@@ -69,8 +72,9 @@
                 <td>@Html.DisplayFor(modelItem => item.Диагноз)</td>
                 <td>@Html.DisplayFor(modelItem => item.Рецепт)</td>
                 <td>@Html.DisplayFor(modelItem => item.Примечание)</td>
-                <td><a href="~/Edit/EditRecept?id=@item.ID_приема">Редактировать</a>
-                    <button class="delete-patient btn btn-danger" id="@item.ID_приема">Удалить</button>
+                <td>
+                    <button class="edit-patient btn btn-edit wide" id="@item.ID_приема">Редактировать</button>
+                    <button class="delete-patient btn btn-delete wide" id="@item.ID_приема">Удалить</button>
                 </td>
 
 

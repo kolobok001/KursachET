@@ -139,9 +139,9 @@
                     @Html.DropDownList("AdressList", new SelectList(Model.Select(x => new { Id = x.Код_адреса, Text = Helper.GetAdress(x.Адреса) }).ToList(), "Id", "Text", item.Код_адреса), Helper.GetAdress(item.Адреса), new { @class = "edit-mode" })
                 </td>
                 <td>
-                    <button class="edit-patient display-mode" id="@item.ID_пациента">Изменить</button>
-                    <button class="delete-patient mode" id="@item.ID_пациента">Удалить</button>
-                    <button class="save-patient edit-mode" id="@item.ID_пациента">Сохранить</button>
+                    <button class="edit-patient display-mode btn-edit" id="@item.ID_пациента">Редактировать</button>
+                    <button class="delete-patient mode btn-delete" id="@item.ID_пациента">Удалить</button>
+                    <button class="save-patient edit-mode btn-save" id="@item.ID_пациента">Сохранить</button>
                 </td>
             </tr>
         }

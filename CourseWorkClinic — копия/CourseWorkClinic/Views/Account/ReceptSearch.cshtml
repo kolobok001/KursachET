@@ -21,6 +21,9 @@
                     });
             }
         });
+        $('.edit-patient').on('click', function (e) {
+            window.location = `/Edit/EditRecept?id=${e.target.id}`
+        });
     })
 </script>
     <div id="searchresults">
@@ -45,8 +48,9 @@
                 <td>@Html.DisplayFor(modelItem => item.Диагноз)</td>
                 <td>@Html.DisplayFor(modelItem => item.Рецепт)</td>
                 <td>@Html.DisplayFor(modelItem => item.Примечание)</td>
-                <td><a href="~/Edit/EditRecept?id=@item.ID_приема">Редактировать</a>
-                    <button class="delete-patient btn btn-danger" id="@item.ID_приема">Удалить</button>
+                <td>
+                    <button class="edit-patient btn btn-edit wide" id="@item.ID_приема">Редактировать</button>
+                    <button class="delete-patient btn btn-delete wide" id="@item.ID_приема">Удалить</button>
                 </td>
 
 

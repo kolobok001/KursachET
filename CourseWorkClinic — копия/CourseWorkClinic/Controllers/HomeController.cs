@@ -88,12 +88,12 @@ namespace CourseWorkClinic.Controllers
                 return View(model);
             }
         }
-        
+
         [AllowAnonymous]
 
 
-       
-  
+
+
 
 
         public ActionResult SheduleSearch(string specialitySearch, string surnameSearch)
@@ -117,16 +117,16 @@ namespace CourseWorkClinic.Controllers
                 return PartialView(allShedule);
             }
         }
-        
 
-        
+
+
         public ActionResult AddReception()
         {
 
 
 
             if (Request.IsAjaxRequest())
-                {
+            {
 
 
                 using (ClinicEntities entities = new ClinicEntities())
@@ -138,22 +138,32 @@ namespace CourseWorkClinic.Controllers
                         newRecept.ID_врача = Guid.Parse(Request["ID_врача"]);
                         newRecept.ID_пациента = Guid.Parse(Request["ID_пациента"]);
                         newRecept.Дата = DateTime.Parse(Request["Дата"]);
-                        string week;
-                        if (newRecept.Дата.DayOfYear / 7 % 2 == 0) week = "чет"; else week = "нечет";
-                        int count = entities.Прием.Where(a => a.ID_врача == newRecept.ID_врача && a.Дата == newRecept.Дата).Count();
-                        int count2 = entities.Расписание.Where(a => a.ID_врача == newRecept.ID_врача && a.Код_дня==(int)newRecept.Дата.DayOfWeek && a.Неделя==week).Count();
+                        if (newRecept.Дата < DateTime.Today)
+                        {
+                            return Json(new { message = "нельзя записаться на прошедшие даты" });
+                        }
+                        //string week;
+                        //if (newRecept.Дата.DayOfYear / 7 % 2 == 0) week = "чет"; else week = "нечет";
+                        //int count = entities.Прием.Where(a => a.ID_врача == newRecept.ID_врача && a.Дата == newRecept.Дата).Count();
+                        //int count2 = entities.Расписание.Where(a => a.ID_врача == newRecept.ID_врача && a.Код_дня == (int)newRecept.Дата.DayOfWeek && a.Неделя == week).Count();
 
-                   
 
-                    
-                        
 
+
+
+
+                        //entities.Прием.Add(newRecept);
+                        //if (count2 == 0)
+                        //{
+                        //    return Json(new { message = "Врач не принимает в этот день" });
+                        //}
+                        //if (count > 4)
+                        //{
+                        //    return Json(new { message = "В выбранный день мест больше нет" });
+                        //}
                         entities.Прием.Add(newRecept);
+                        entities.SaveChanges();
 
-                        if (count < 4 && count2>0)
-                            entities.SaveChanges();
-                        else
-                            return Json(new { message = "Ошибка" });
                     }
 
 
@@ -168,17 +178,18 @@ namespace CourseWorkClinic.Controllers
                                 System.Diagnostics.Debug.Write(err.ErrorMessage + " ");
                             }
                         }
+                        return Json(new { message = "Произошла непредвиденная ошибка" });
                     }
 
-                    return Json(new { message = "Все гуд" });
+                    return Json(new { message = "Успешно записали на прием" });
                 }
             }
             else return View();
 
 
-            }
-            }
-
+        }
     }
+
+}
 
 

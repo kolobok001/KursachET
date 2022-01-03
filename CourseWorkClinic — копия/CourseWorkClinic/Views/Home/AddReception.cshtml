@@ -34,7 +34,8 @@
     $(function () {
 
 
-        $('.save').on('click', function () {
+        $('.save').on('click', function (event) {
+            event.preventDefault()
             
             var data = $('#form').serialize();
 
@@ -42,6 +43,7 @@
             $.post('/Home/AddReception', data)
                 .done(function (data) {
                     alert(data.message);
+                    location.reload()
                     
                         
                 })
